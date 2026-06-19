@@ -317,12 +317,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
   transition: transform .4s ease;
 }
 
-.video-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+
 
 /* Hover lift */
 
@@ -391,6 +386,25 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 
 .video-toggle:hover {
   background: #004ecc;
+}
+
+/* YouTube iframe wrapper — keeps 9:16 portrait ratio like your original videos */
+.video-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 177.78%; /* 9:16 aspect ratio */
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.video-iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none; /* prevents clicking into YouTube */
 }
 
 /* Responsive */
@@ -910,6 +924,7 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
 
 
 <!--video carousel-->
+<!--video carousel-->
 <section class="video-carousel-section">
   <div class="video-carousel-container">
 
@@ -919,418 +934,161 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
     <div class="video-carousel-wrapper">
       <div class="video-carousel-track" id="videoTrack">
 
-        <!-- VIDEO 1 -->
-<div class="video-item">
-  
-  <video 
-    src="/video/BRAND AD_2.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
+        <!-- VIDEO 1 — replace VIDEO_ID with your YouTube video ID -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/bFZCVAFsk6A?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
 
         <!-- VIDEO 2 -->
-<div class="video-item">
-  
-  <video 
-    src="/video/BTS G_design .mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/73Ewl1O858A?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
 
         <!-- VIDEO 3 -->
-<div class="video-item">
-  
-  <video 
-    src="/video/BTS LOCKIN RETREAT.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-        <!-- DUPLICATES FOR INFINITE LOOP -->
-<div class="video-item">
-  
-  <video 
-    src="./video/CHAPLAIN_2.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-<div class="video-item">
-  
-  <video 
-    src="./video/DAREDEVIL.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-<div class="video-item">
-  
-  <video 
-    src="./video/DO YOU DO 3D ADs_3.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-<div class="video-item">
-  
-  <video 
-    src="./video/FRUITY LIFE v.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/HILDA BACI.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/ICE_CREED.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-<div class="video-item">
-  
-  <video 
-    src="./video/LIGHT_3.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-<div class="video-item">
-  
-  <video 
-    src="./video/NETFLIX LOOK.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-<div class="video-item">
-  
-  <video 
-    src="./video/NIKE LOGO.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/PRODUCT AD01.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/SHARON.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/SHILOH BTS.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/SUNDAY SHOOT EDIT.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/TEDx BTS.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/THANKSGIVING BTS.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/TIKTOK_CONVO03.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/YOUR SHOOT WITH US_3 .mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-
-<div class="video-item">
-  
-  <video 
-    src="./video/YOUTUBE UI ANIMATION .mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-<div class="video-item">
-  
-  <video 
-    src="/video/Comp 2_1_1.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen">
-  </video>
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
-
-<div class="video-item">
-  
-  <video 
-    src="/video/Comp 2_1_1.mp4"
-    muted
-    playsinline
-    loop
-    controlslist="nodownload nofullscreen ">
-  </video>
-
-
-  
-
-  <div class="video-controls">
-    <button type="button" class="play-toggle">❚❚</button>
-    <button type="button" class="sound-toggle">🔇</button>
-  </div>
-
-</div>
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/-3bsJvXV3Mc?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/-3bsJvXV3Mc?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/-3bsJvXV3Mc?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/-3bsJvXV3Mc?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/-3bsJvXV3Mc?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/-3bsJvXV3Mc?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/-3bsJvXV3Mc?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://youtube.com/shorts/-3bsJvXV3Mc?feature=share"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- Repeat the block above for each of your videos -->
+        <!-- Just swap out VIDEO_ID each time -->
 
       </div>
     </div>
-
 
   </div>
 </section>
@@ -2145,6 +1903,25 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+<script>
+document.querySelectorAll('.sound-toggle').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const iframe = this.closest('.video-item').querySelector('iframe');
+    const isMuted = this.dataset.muted === 'true';
+    const src = iframe.src;
+
+    if (isMuted) {
+      iframe.src = src.replace('mute=1', 'mute=0');
+      this.textContent = '🔊';
+      this.dataset.muted = 'false';
+    } else {
+      iframe.src = src.replace('mute=0', 'mute=1');
+      this.textContent = '🔇';
+      this.dataset.muted = 'true';
+    }
   });
 });
 </script>
