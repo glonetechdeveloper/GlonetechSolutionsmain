@@ -461,42 +461,151 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 .cs-client{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 .cs-result{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--white);line-height:1.3}
 
-/* PLATFORM */
+/* PLATFORM (PAIN POINTS & THE GLONETECH STANDARD) */
 #platform{background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 40px}
-.platform-inner{max-width:900px;margin:0 auto;text-align:center}
-.platform-title{font-family:var(--font-head);font-size:clamp(2rem,4.5vw,4rem);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:1.5rem}
-.platform-sub{font-family:var(--font-body);font-size:18px;color:var(--muted);line-height:1.8;max-width:680px;margin:0 auto 3rem}
-/* DEVELOPER: AGENCY SHOWREEL IMAGE or VIDEO
-   Replace the .platform-ph div below with either:
-   Option A — Image: <img src="assets/agency-showreel-poster.jpg" alt="Glonetech in action" style="width:100%;border-radius:8px">
-   Option B — YouTube: <iframe width="100%" height="500" src="https://www.youtube.com/embed/YOUR_ID?rel=0" frameborder="0" allowfullscreen style="border-radius:8px"></iframe>
-   Option C — Self-hosted video (uses modal system below) */
-.platform-ph{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:80px 20px;text-align:center;margin-bottom:3rem}
-.platform-ph span{display:block;font-size:3rem;margin-bottom:12px}
-.platform-ph p{font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.platform-inner{max-width:1140px;margin:0 auto;text-align:center}
+.platform-title{font-family:var(--font-head);font-size:clamp(2rem,4.5vw,3.8rem);font-weight:900;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1.5rem}
+.platform-sub{font-family:var(--font-body);font-size:18px;color:var(--muted);line-height:1.8;max-width:780px;margin:0 auto 3.5rem}
 
-/* TESTIMONIALS */
-#testimonials{background:var(--black);padding:100px 40px}
-/* DEVELOPER: VIDEO TESTIMONIALS
-   For each .testi-card:
-   1. Set thumbnail: <div class="testi-thumb" style="background-image:url('assets/thumb-client1.jpg')">
-   2. Set video:     <div class="testi-card" data-video="assets/testimonial-client1.mp4">
-   3. Add logo:      Replace .logo-ph-t text with <img src="assets/logo-client1.png" style="height:28px">
-   Thumbnail size: 1200x673px. Video: MP4, compressed. */
-.testi-list{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:4px}
-.testi-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .2s}
-.testi-card:hover{border-color:rgba(26,111,255,.4)}
-.testi-inner{display:flex;align-items:stretch}
-.testi-thumb{width:260px;min-width:260px;height:146px;background:var(--border) center/cover no-repeat;position:relative;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-/* DEVELOPER: Set background-image on .testi-thumb for each card */
-.thumb-ph{font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.25);text-align:center;padding:10px}
-.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(26,111,255,.92);display:flex;align-items:center;justify-content:center;transition:.2s}
-.testi-card:hover .play-btn{transform:translate(-50%,-50%) scale(1.1)}
-.play-btn::after{content:'';width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:16px solid #000;margin-left:3px}
-.testi-info{padding:1.5rem 2rem;flex:1;display:flex;flex-direction:column;justify-content:center}
-.logo-ph-t{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:.8rem}
-.testi-quote{font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--off-white);line-height:1.65;margin-bottom:.8rem}
-.testi-author{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--muted)}
+/* Pain points bento grid */
+.pp-bento{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;text-align:left;margin-bottom:3.5rem}
+.pp-col{display:flex;flex-direction:column;gap:22px}
+.pp-card{background:#111216;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:2.2rem;position:relative;overflow:hidden;transition:border-color .3s ease,box-shadow .3s ease}
+.pp-card:hover{border-color:rgba(255,255,255,.2);box-shadow:0 16px 40px rgba(0,0,0,.6)}
+
+.pp-featured{min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:2.5rem;background-size:cover;background-position:center;position:relative}
+.pp-featured::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.3) 0%,rgba(10,10,10,.82) 45%,rgba(10,10,10,.98) 100%)}
+.pp-featured-content{position:relative;z-index:2}
+
+.pp-tag{display:inline-block;font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:5px 12px;border-radius:6px;margin-bottom:1rem}
+.pp-title{font-family:var(--font-head);font-size:clamp(1.25rem,2vw,1.6rem);font-weight:800;color:var(--white);line-height:1.25;margin-bottom:.8rem}
+.pp-desc{font-family:var(--font-body);font-size:14.5px;color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:1rem}
+.pp-solution{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--white);border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;line-height:1.6}
+.pp-solution span{color:var(--accent);display:inline-block;margin-right:6px}
+
+.pp-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.2rem}
+.pp-chip{background:rgba(255,255,255,.06);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.9);font-family:var(--font-head);font-size:11px;font-weight:700;padding:6px 14px;border-radius:6px}
+
+@media(max-width:880px){
+  .pp-bento{grid-template-columns:1fr}
+}
+
+/* ════════════════════ ECHO STYLE REVIEWS SECTION ════════════════════ */
+.echo-section{
+  position:relative;
+  width:100%;
+  background:#000000;
+  color:#ffffff;
+  overflow:hidden;
+  height:280vh;
+  min-height:2200px;
+}
+.echo-container{
+  position:relative;
+  width:100%;
+  height:100%;
+  max-width:1440px;
+  margin:0 auto;
+}
+.echo-heading-shell{
+  position:absolute;
+  top:120px;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  z-index:2; /* write up sits behind the bubbles */
+  width:min(92%, 850px);
+  text-align:center;
+  pointer-events:none;
+  will-change:transform;
+}
+.echo-eyebrow{
+  font-family:var(--font-head);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 auto 1rem auto;
+  text-align:center;
+}
+.echo-heading{
+  font-family:var(--font-head);
+  font-size:clamp(2.4rem,5.5vw,4.4rem);
+  font-weight:900;
+  line-height:1.06;
+  letter-spacing:-1.5px;
+  color:#ffffff;
+  margin:0 auto 1.2rem auto;
+  text-align:center;
+}
+.echo-sub{
+  font-family:var(--font-body);
+  font-size:16px;
+  color:rgba(255,255,255,.65);
+  max-width:540px;
+  margin:0 auto;
+  text-align:center;
+}
+  margin:0 auto;
+}
+
+/* Bubbles Layer (Z-index above the heading shell so bubbles form a dense cloud around/in front) */
+.echo-bubbles-layer{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
+}
+.echo-bubble{
+  position:absolute;
+  background:#ffffff;
+  color:#000000;
+  border-radius:999px;
+  padding:12px 22px;
+  font-family:var(--font-head);
+  font-weight:700;
+  font-size:clamp(12px,1.05vw,15px);
+  line-height:1.25;
+  box-shadow:0 10px 24px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.25);
+  filter:drop-shadow(0 8px 16px rgba(0,0,0,.45));
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:auto;
+  cursor:default;
+  transition:transform .2s cubic-bezier(0.2,0.8,0.2,1),filter .2s ease;
+  user-select:none;
+}
+.echo-bubble:hover{
+  transform:scale(1.08) !important;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,.85));
+  z-index:50 !important;
+}
+.echo-bubble::after{
+  content:'';
+  position:absolute;
+  bottom:-6px;
+  left:22px;
+  width:14px;
+  height:12px;
+  background:#ffffff;
+  clip-path:polygon(0 0, 100% 0, 0 100%);
+  border-bottom-left-radius:3px;
+}
+.echo-bubble.tail-right::after{
+  left:auto;
+  right:22px;
+  clip-path:polygon(0 0, 100% 0, 100% 100%);
+  border-bottom-right-radius:3px;
+}
+
+@media(max-width:768px){
+  .echo-section{height:250vh;min-height:1800px}
+  .echo-bubble{padding:8px 14px;font-size:12px;max-width:85vw;white-space:normal;text-align:center}
+}
 
 /* VIDEO MODAL */
 .v-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
@@ -527,30 +636,47 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 /* SERVICES */
 #services{background:var(--black);border-top:1px solid var(--border);padding:100px 40px}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);max-width:1100px;margin:0 auto}
-.svc-card{background:var(--black);padding:2.5rem;transition:background .2s;position:relative;overflow:hidden}
-.svc-card:hover{background:var(--off-black)}
-.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.svc-card:hover::before{transform:scaleX(1)}
-.svc-n{font-family:var(--font-head);font-size:60px;font-weight:900;color:rgba(255,255,255,.04);line-height:1;position:absolute;top:1rem;right:1.5rem;letter-spacing:-3px;user-select:none}
-.svc-icon{font-size:1.8rem;margin-bottom:1.2rem}
-.svc-name{font-family:var(--font-head);font-size:1.05rem;font-weight:800;margin-bottom:.7rem}
-.svc-desc{font-family:var(--font-body);font-size:14px;color:var(--muted);line-height:1.7}
+.svc-card{background:#0d0d0d;padding:2.8rem 2.2rem;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.05);transition:background-color .3s ease,border-color .3s ease}
+.svc-card:hover{background:#13151a;border-color:rgba(26,111,255,.35)}
+.svc-n{font-family:var(--font-head);font-size:2.4rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;position:absolute;top:1.5rem;right:1.6rem;letter-spacing:-1px;user-select:none;transition:color .3s ease}
+.svc-card:hover .svc-n{color:rgba(26,111,255,.2)}
+.svc-icon-box{width:46px;height:46px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);display:inline-flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1.4rem;transition:all .3s ease}
+.svc-card:hover .svc-icon-box{background:rgba(26,111,255,.12);border-color:rgba(26,111,255,.35);color:#fff}
+.svc-icon-box svg{width:22px;height:22px}
+.svc-name{font-family:var(--font-head);font-size:1.08rem;font-weight:800;letter-spacing:-.2px;margin-bottom:.7rem;color:var(--white)}
+.svc-desc{font-family:var(--font-body);font-size:14px;color:#8c8c8c;line-height:1.7}
+
+@media(max-width:850px){
+  .svc-grid{grid-template-columns:repeat(2, 1fr)}
+}
+@media(max-width:550px){
+  .svc-grid{grid-template-columns:1fr}
+}
 
 /* TEAM */
 #team{background:var(--off-black);border-top:1px solid var(--border);padding:100px 40px}
 .team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:1100px;margin:0 auto}
-/* DEVELOPER: TEAM PHOTOS
-   Set background-image on each .team-photo via inline style:
-   style="background-image:url('assets/team-john.jpg')"
-   Recommended: Portrait photos, consistent studio/style
-   Remove .team-ph placeholder div once image is added */
-.team-card{border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:border-color .2s,transform .2s}
-.team-card:hover{border-color:rgba(26,111,255,.3);transform:translateY(-4px)}
-.team-photo{aspect-ratio:3/4;background:var(--card) center/cover no-repeat}
-.team-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#111,#1a2a1a);font-family:var(--font-head);font-size:2.5rem;font-weight:900;color:rgba(26,111,255,.15)}
-.team-info{padding:1.2rem 1.4rem;background:var(--card)}
+.team-card{border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:border-color .25s ease,box-shadow .25s ease}
+.team-card:hover{border-color:rgba(26,111,255,.4);box-shadow:0 12px 35px rgba(26,111,255,.18)}
+.team-photo-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;background:#111}
+.team-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease,transform .55s cubic-bezier(0.2,0.8,0.2,1),filter .45s ease}
+.team-img-default{opacity:1;z-index:1}
+.team-img-hover{opacity:0;z-index:2;filter:grayscale(100%) contrast(1.15) brightness(0.95);transform:scale(1.04)}
+.team-card:hover .team-img-hover{opacity:1;transform:scale(1)}
+.team-card:hover .team-img-default{opacity:0;transform:scale(0.98)}
+.team-info{padding:1.2rem 1.4rem;background:var(--card);position:relative;z-index:3}
 .team-name{font-family:var(--font-head);font-size:.9rem;font-weight:800}
 .team-role{font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--accent);margin-top:3px;text-transform:uppercase}
+
+@media(max-width:950px){
+  .team-grid{grid-template-columns:repeat(3, 1fr)}
+}
+@media(max-width:640px){
+  .team-grid{grid-template-columns:repeat(2, 1fr)}
+}
+@media(max-width:420px){
+  .team-grid{grid-template-columns:1fr}
+}
 
 /* PROCESS */
 #process{background:var(--black);border-top:1px solid var(--border);padding:100px 40px}
@@ -698,8 +824,8 @@ nav{animation:fadeInDown .6s .1s ease both}
 .seen-strip{animation:fadeIn .6s ease both}
 /* Stat boxes stagger */
 /* stat boxes use reveal class instead */
-/* Service cards stagger on scroll via reveal class — extra pop */
-.svc-card:hover{transform:translateY(-4px);transition:transform .25s,background .2s}
+/* Service cards */
+.svc-card{transition:background .3s,border-color .3s}
 /* Offer cards */
 .offer-card{animation:fadeIn .5s ease both}
 /* Team cards */
@@ -1337,36 +1463,55 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   </div>
 </section>
 
-<!-- ══════════════════════ PLATFORM ══════════════════════ -->
+<!-- ══════════════════════ PLATFORM (THE REALITY & PAIN POINTS) ══════════════════════ -->
 <section id="platform">
   <div class="platform-inner reveal">
     <p class="sec-label">Built For Scale</p>
     <h2 class="platform-title">The Most Ruthlessly Effective Creative Platform For Rapidly Scaling Brands In Nigeria</h2>
     <p class="platform-sub">There are a lot of so-called "agencies" roaming around the world wide web today. Most of these people are all talk, no results. Marketers lie, but work doesn't. And we have 100+ projects and 50+ satisfied clients to prove it.</p>
 
-    <!--
-    DEVELOPER: SHOWREEL / FEATURE IMAGE
-    Replace this .platform-ph div with your actual content:
+    <!-- PAIN POINTS BENTO GRID (Raw, authentic, zero fake metrics) -->
+    <div class="pp-bento">
+      <!-- Left Featured: Visual Proof & The Brand Reality -->
+      <div class="pp-card pp-featured" style="background-image:url('Graphics/ALL-STARS @4x.webp')">
+        <div class="pp-featured-content">
+          <span class="pp-tag">Market Perception</span>
+          <h3 class="pp-title">Stop Losing Customers To Competitors Who Simply Look Better</h3>
+          <p class="pp-desc">In modern business, perception is reality. Inferior products regularly beat superior brands simply because their creative looks world-class, confident, and established. If your brand doesn't command authority in the first 3 seconds, prospects scroll right past you.</p>
+          <div class="pp-chips">
+            <span class="pp-chip">Commercial Stopping Power</span>
+            <span class="pp-chip">Cinema-Grade Polish</span>
+            <span class="pp-chip">Category Authority</span>
+          </div>
+        </div>
+      </div>
 
-    Option A — Static image:
-    <img src="assets/agency-at-work.jpg" alt="Glonetech team" style="width:100%;border-radius:8px;border:1px solid var(--border)">
+      <!-- Right Column: Direct Pain Points -->
+      <div class="pp-col">
+        <!-- Pain Point 1 -->
+        <div class="pp-card">
+          <span class="pp-tag">The "Pretty Art" Trap</span>
+          <h4 class="pp-title">Designers Who Make Art, Not Sales</h4>
+          <p class="pp-desc">Most agencies design for design awards, not your cash flow. You get handed graphics that win polite compliments, but generate zero inquiries and zero revenue. Creative that doesn't convert is just expensive overhead.</p>
+          <div class="pp-solution"><span>The Glonetech Standard:</span> Every visual asset and 3D cut is built with direct consumer psychology to command attention and compel action.</div>
+        </div>
 
-    Option B — YouTube embed:
-    <div style="position:relative;padding-bottom:56.25%;border-radius:8px;overflow:hidden;border:1px solid var(--border)">
-      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&autoplay=0"
-        style="position:absolute;inset:0;width:100%;height:100%"
-        frameborder="0" allowfullscreen></iframe>
-    </div>
+        <!-- Pain Point 2 -->
+        <div class="pp-card">
+          <span class="pp-tag">The Middleman Problem</span>
+          <h4 class="pp-title">Account Managers & Freelancer Roulette</h4>
+          <p class="pp-desc">With traditional agencies, there is always an unnecessary middleman between you and the work. You never speak directly to the artists touching your files. Account managers miscommunicate your brief, slow down delivery, and pass your project to disconnected freelancers. Messages get lost, revisions drag on for weeks, and quality degrades.</p>
+          <div class="pp-solution"><span>The Glonetech Standard:</span> Direct Slack & WhatsApp access to dedicated in-house creatives actually producing your work. Zero middlemen.</div>
+        </div>
 
-    Option C — Self-hosted video with play-to-modal:
-    <div class="cs-card" style="aspect-ratio:16/9;background-image:url('assets/showreel-poster.jpg')"
-         data-video="assets/showreel.mp4" onclick="openModal(this.dataset.video)">
-      <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
-    </div>
-    -->
-    <div class="cs-card" style="aspect-ratio:16/9;background-image:url('assets/pexels-cottonbro-3692625.jpg')"
-         data-video="video/v.mp4" onclick="openModal(this.dataset.video)">
-      <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+        <!-- Pain Point 3 -->
+        <div class="pp-card">
+          <span class="pp-tag">The Blame Game</span>
+          <h4 class="pp-title">Zero Accountability When Ad Spend Burns</h4>
+          <p class="pp-desc">When a campaign flops, traditional agencies point fingers: media buyers blame the creative, designers blame the offer, and nobody owns the outcome. You're left holding the bill.</p>
+          <div class="pp-solution"><span>The Glonetech Standard:</span> Radical ownership. Strategy, production, and execution live under one unified roof with a team personally invested in your win.</div>
+        </div>
+      </div>
     </div>
 
     <a href="#contact" class="btn-main">Click The Button Already →</a>
@@ -1374,112 +1519,216 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   </div>
 </section>
 
-<!-- ════════════════════ VIDEO TESTIMONIALS ════════════════════ -->
-<section id="testimonials">
-  <p class="sec-label reveal">Client Results</p>
-  <h2 class="sec-title reveal">Real People.<br>Real Results.</h2>
-
-  <!--
-  ╔════════════════════════════════════════════════════╗
-  ║  DEVELOPER: VIDEO TESTIMONIAL CARDS                ║
-  ╠════════════════════════════════════════════════════╣
-  ║  For each .testi-card:                             ║
-  ║                                                    ║
-  ║  1. VIDEO: Set data-video="assets/testi-name.mp4"  ║
-  ║     on the .testi-card div. Clicking the card      ║
-  ║     will open it in the video modal automatically. ║
-  ║     Or use a YouTube URL:                          ║
-  ║     data-video="https://youtube.com/embed/ID?autoplay=1" ║
-  ║                                                    ║
-  ║  2. THUMBNAIL: Add inline style to .testi-thumb:   ║
-  ║     style="background-image:url('assets/           ║
-  ║            thumb-clientname.jpg')"                 ║
-  ║     Remove the .thumb-ph div once image is added   ║
-  ║                                                    ║
-  ║  3. CLIENT LOGO: Replace .logo-ph-t text with:     ║
-  ║     <img src="assets/logo-client.png"              ║
-  ║          style="height:26px;opacity:.8">           ║
-  ║                                                    ║
-  ║  4. Update .testi-quote and .testi-author text     ║
-  ╚════════════════════════════════════════════════════╝
-  -->
-
-  <div class="testi-list reveal">
-
-    <div class="testi-card" data-video="video/v.mp4">
-      <!-- DEVELOPER: data-video="assets/testimonial-client1.mp4" -->
-      <div class="testi-inner">
-        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
-          <!-- DEVELOPER: style="background-image:url('assets/thumb-client1.jpg')" -->
-          <div class="play-btn"></div>
-        </div>
-        <div class="testi-info">
-          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
-          <p class="testi-quote">"Working with Glonetech completely transformed how people perceive our brand. Within 60 days, our engagement tripled and our inbound inquiries skyrocketed. Best investment we've ever made in marketing."</p>
-          <p class="testi-author">— Client Name, CEO, Company Name</p>
-        </div>
-      </div>
+<!-- ════════════════════ CLIENT RESULTS / ECHO SCROLL REVIEWS ════════════════════ -->
+<section class="echo-section" id="testimonials" aria-label="Client Results and Reviews">
+  <div class="echo-container">
+    
+    <!-- Centered Writeup Behind (smoothly descends as visitor scrolls) -->
+    <div class="echo-heading-shell">
+      <p class="echo-eyebrow">Client Results</p>
+      <h2 class="echo-heading">Real People.<br>Real Results.</h2>
+      <p class="echo-sub">Unfiltered client messages straight from our production chats.</p>
     </div>
 
-    <div class="testi-card" data-video="video/r.mp4">
-      <!-- DEVELOPER: data-video="assets/testimonial-client2.mp4" -->
-      <div class="testi-inner">
-        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
-          <div class="thumb-ph">DEVELOPER:<br>Add thumbnail</div>
-          <div class="play-btn"></div>
-        </div>
-        <div class="testi-info">
-          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
-          <p class="testi-quote">"We hired three agencies before Glonetech. None delivered. Glonetech is completely different — they think strategically and their creative quality is simply world-class. Our social following has grown 300% since day one."</p>
-          <p class="testi-author">— Client Name, Founder, Company Name</p>
-        </div>
-      </div>
-    </div>
+    <!-- Densely Crowded White Speech Bubbles Layer (echo-ng.com Image 2 style) -->
+    <div class="echo-bubbles-layer" id="echoBubblesLayer">
 
-    <div class="testi-card" data-video="video/v.mp4">
-      <!-- DEVELOPER: data-video="assets/testimonial-client3.mp4" -->
-      <div class="testi-inner">
-        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
-          <div class="play-btn"></div>
-        </div>
-        <div class="testi-info">
-          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
-          <p class="testi-quote">"Our product launch was flawless from start to finish. The photography, video content, and social strategy all exceeded our expectations dramatically. We've never looked this professional — and our sales are reflecting it."</p>
-          <p class="testi-author">— Client Name, CMO, Company Name</p>
-        </div>
+      <!-- ── TOP INFLOW (Sparse to converging) ── -->
+      <div class="echo-bubble" style="left:48%; top:2%; z-index:5;" data-speed="0.25">
+        Dopppeeeeeee
       </div>
-    </div>
-
-    <div class="testi-card" data-video="video/r.mp4">
-      <!-- DEVELOPER: data-video="assets/testimonial-client4.mp4" -->
-      <div class="testi-inner">
-        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
-          <div class="thumb-ph">DEVELOPER:<br>Add thumbnail</div>
-          <div class="play-btn"></div>
-        </div>
-        <div class="testi-info">
-          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
-          <p class="testi-quote">"From the very first meeting, I knew this team was different. They treat your brand like it's their own. The growth we've experienced since partnering with Glonetech has been nothing short of extraordinary."</p>
-          <p class="testi-author">— Client Name, Director, Company Name</p>
-        </div>
+      <div class="echo-bubble tail-right" style="right:24%; top:4.5%; z-index:6;" data-speed="0.35">
+        Brooo the whole team is hyped and pumped up
       </div>
-    </div>
-
-    <div class="testi-card" data-video="video/v.mp4">
-      <!-- DEVELOPER: data-video="assets/testimonial-client5.mp4" -->
-      <div class="testi-inner">
-        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
-          <div class="thumb-ph">DEVELOPER:<br>Add thumbnail</div>
-          <div class="play-btn"></div>
-        </div>
-        <div class="testi-info">
-          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
-          <p class="testi-quote">"I was skeptical — I've been burned by agencies before. But Glonetech's results speak for themselves. Our brand awareness has grown astronomically and the ROI is completely undeniable. I'd never go back."</p>
-          <p class="testi-author">— Client Name, Founder, Company Name</p>
-        </div>
+      <div class="echo-bubble" style="left:26%; top:6%; z-index:6;" data-speed="0.2">
+        Kudos to you guysss
       </div>
-    </div>
+      <div class="echo-bubble tail-right" style="right:15%; top:8.5%; z-index:7;" data-speed="0.4">
+        The team are happy and they're impressed
+      </div>
+      <div class="echo-bubble" style="left:38%; top:10.5%; z-index:7;" data-speed="0.3">
+        Thanks bro
+      </div>
 
+      <!-- ── UPPER CROWDED CANOPY (Dense overlapping cluster forming top arch) ── -->
+      <div class="echo-bubble tail-right" style="right:32%; top:13%; z-index:8;" data-speed="0.35">
+        Okayy this is really good
+      </div>
+      <div class="echo-bubble" style="left:16%; top:14.5%; z-index:8;" data-speed="0.25">
+        beautiful
+      </div>
+      <div class="echo-bubble tail-right" style="right:8%; top:16%; z-index:9;" data-speed="0.45">
+        you guyz are doing an amazing work with the videos
+      </div>
+      <div class="echo-bubble" style="left:28%; top:17.5%; z-index:9;" data-speed="0.2">
+        Good evening, love your work
+      </div>
+      <div class="echo-bubble tail-right" style="right:44%; top:18.5%; z-index:10;" data-speed="0.3">
+        This is very good
+      </div>
+      <div class="echo-bubble" style="left:8%; top:20%; z-index:10;" data-speed="0.35">
+        All your videos are top notch
+      </div>
+      <div class="echo-bubble tail-right" style="right:20%; top:21%; z-index:11;" data-speed="0.25">
+        This is the idea, it still ...
+      </div>
+      <div class="echo-bubble" style="left:46%; top:22%; z-index:11;" data-speed="0.3">
+        Wowwww
+      </div>
+
+      <!-- ── DENSE LEFT FLANK (Multiple overlapping rows left of the writeup) ── -->
+      <div class="echo-bubble" style="left:4%; top:24.5%; z-index:12;" data-speed="0.2">
+        Our product launch was flawless from start to finish
+      </div>
+      <div class="echo-bubble" style="left:18%; top:26.5%; z-index:13;" data-speed="0.35">
+        Dopppeeeeeee
+      </div>
+      <div class="echo-bubble" style="left:6%; top:29%; z-index:12;" data-speed="0.25">
+        The turnaround time is unreal
+      </div>
+      <div class="echo-bubble" style="left:22%; top:31%; z-index:14;" data-speed="0.4">
+        Brooo the whole team is hyped and pumped up
+      </div>
+      <div class="echo-bubble" style="left:3%; top:33.5%; z-index:13;" data-speed="0.2">
+        Best investment we have ever made in marketing
+      </div>
+      <div class="echo-bubble" style="left:17%; top:36%; z-index:15;" data-speed="0.3">
+        Our social following has grown 300% since day one
+      </div>
+      <div class="echo-bubble" style="left:5%; top:38.5%; z-index:14;" data-speed="0.35">
+        Thanks bro
+      </div>
+      <div class="echo-bubble" style="left:20%; top:41%; z-index:16;" data-speed="0.25">
+        The team are happy and they're impressed
+      </div>
+      <div class="echo-bubble" style="left:7%; top:43.5%; z-index:15;" data-speed="0.4">
+        you guyz are doing an amazing work with the videos
+      </div>
+      <div class="echo-bubble" style="left:21%; top:46%; z-index:17;" data-speed="0.2">
+        Okayy this is really good
+      </div>
+      <div class="echo-bubble" style="left:4%; top:48.5%; z-index:16;" data-speed="0.3">
+        Good evening, love your work
+      </div>
+      <div class="echo-bubble" style="left:19%; top:51%; z-index:18;" data-speed="0.35">
+        All your videos are top notch
+      </div>
+
+      <!-- ── DENSE RIGHT FLANK (Multiple overlapping rows right of the writeup) ── -->
+      <div class="echo-bubble tail-right" style="right:4%; top:24.5%; z-index:12;" data-speed="0.3">
+        Brooo the whole team is hyped and pumped up
+      </div>
+      <div class="echo-bubble tail-right" style="right:18%; top:26.5%; z-index:13;" data-speed="0.2">
+        Kudos to you guysss
+      </div>
+      <div class="echo-bubble tail-right" style="right:6%; top:29%; z-index:12;" data-speed="0.4">
+        Okayy this is really good
+      </div>
+      <div class="echo-bubble tail-right" style="right:22%; top:31%; z-index:14;" data-speed="0.25">
+        beautiful
+      </div>
+      <div class="echo-bubble tail-right" style="right:3%; top:33.5%; z-index:13;" data-speed="0.35">
+        you guyz are doing an amazing work with the videos
+      </div>
+      <div class="echo-bubble tail-right" style="right:17%; top:36%; z-index:15;" data-speed="0.2">
+        Good evening, love your work
+      </div>
+      <div class="echo-bubble tail-right" style="right:5%; top:38.5%; z-index:14;" data-speed="0.45">
+        This is very good
+      </div>
+      <div class="echo-bubble tail-right" style="right:20%; top:41%; z-index:16;" data-speed="0.3">
+        All your videos are top notch
+      </div>
+      <div class="echo-bubble tail-right" style="right:7%; top:43.5%; z-index:15;" data-speed="0.25">
+        This is the idea, it still ...
+      </div>
+      <div class="echo-bubble tail-right" style="right:21%; top:46%; z-index:17;" data-speed="0.35">
+        Wowwww
+      </div>
+      <div class="echo-bubble tail-right" style="right:4%; top:48.5%; z-index:16;" data-speed="0.2">
+        Our product launch was flawless from start to finish
+      </div>
+      <div class="echo-bubble tail-right" style="right:19%; top:51%; z-index:18;" data-speed="0.4">
+        The turnaround time is unreal
+      </div>
+
+      <!-- ── LOWER CLUSTER (Under writeup, dense overlapping rows) ── -->
+      <div class="echo-bubble" style="left:30%; top:53.5%; z-index:19;" data-speed="0.25">
+        Dopppeeeeeee
+      </div>
+      <div class="echo-bubble tail-right" style="right:30%; top:54.5%; z-index:19;" data-speed="0.35">
+        The team are happy and they're impressed
+      </div>
+      <div class="echo-bubble" style="left:12%; top:56.5%; z-index:20;" data-speed="0.2">
+        Thanks bro
+      </div>
+      <div class="echo-bubble" style="left:38%; top:57.5%; z-index:21;" data-speed="0.3">
+        Brooo the whole team is hyped and pumped up
+      </div>
+      <div class="echo-bubble tail-right" style="right:14%; top:58%; z-index:20;" data-speed="0.4">
+        Our social following has grown 300% since day one
+      </div>
+      <div class="echo-bubble" style="left:24%; top:60.5%; z-index:22;" data-speed="0.35">
+        Kudos to you guysss
+      </div>
+      <div class="echo-bubble tail-right" style="right:26%; top:61.5%; z-index:22;" data-speed="0.25">
+        Okayy this is really good
+      </div>
+      <div class="echo-bubble" style="left:46%; top:62.5%; z-index:23;" data-speed="0.3">
+        beautiful
+      </div>
+
+      <!-- ── TAPERING FUNNEL (echo-ng.com Image 2 style funnel down towards bottom) ── -->
+      <div class="echo-bubble" style="left:18%; top:65.5%; z-index:24;" data-speed="0.2">
+        you guyz are doing an amazing work with the videos
+      </div>
+      <div class="echo-bubble tail-right" style="right:20%; top:66.5%; z-index:24;" data-speed="0.35">
+        Good evening, love your work
+      </div>
+      <div class="echo-bubble" style="left:36%; top:68%; z-index:25;" data-speed="0.3">
+        This is very good
+      </div>
+      <div class="echo-bubble tail-right" style="right:34%; top:70%; z-index:25;" data-speed="0.25">
+        All your videos are top notch
+      </div>
+      <div class="echo-bubble" style="left:28%; top:72.5%; z-index:26;" data-speed="0.35">
+        This is the idea, it still ...
+      </div>
+      <div class="echo-bubble tail-right" style="right:28%; top:74%; z-index:26;" data-speed="0.2">
+        Wowwww
+      </div>
+      <div class="echo-bubble" style="left:38%; top:76.5%; z-index:27;" data-speed="0.3">
+        Dopppeeeeeee
+      </div>
+      <div class="echo-bubble tail-right" style="right:36%; top:78.5%; z-index:27;" data-speed="0.25">
+        The team are happy and they're impressed
+      </div>
+      <div class="echo-bubble" style="left:34%; top:81%; z-index:28;" data-speed="0.35">
+        Thanks bro
+      </div>
+      <div class="echo-bubble tail-right" style="right:32%; top:83%; z-index:28;" data-speed="0.3">
+        Brooo the whole team is hyped and pumped up
+      </div>
+      <div class="echo-bubble" style="left:40%; top:85.5%; z-index:29;" data-speed="0.25">
+        Okayy this is really good
+      </div>
+      <div class="echo-bubble tail-right" style="right:38%; top:87.5%; z-index:29;" data-speed="0.3">
+        beautiful
+      </div>
+      <div class="echo-bubble" style="left:43%; top:90%; z-index:30;" data-speed="0.2">
+        All your videos are top notch
+      </div>
+      <div class="echo-bubble tail-right" style="right:42%; top:92%; z-index:30;" data-speed="0.35">
+        you guyz are doing an amazing work with the videos
+      </div>
+      <div class="echo-bubble" style="left:46%; top:94.5%; z-index:31;" data-speed="0.25">
+        Wowwww
+      </div>
+      <div class="echo-bubble" style="left:48%; top:97%; z-index:32;" data-speed="0.2">
+        Dopppeeeeeee
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1523,82 +1772,100 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   <div class="svc-grid reveal">
     <div class="svc-card">
       <div class="svc-n">01</div>
-      <div class="svc-icon">🎬</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+      </div>
       <div class="svc-name">Video Production</div>
       <p class="svc-desc">Brand films, social reels, TV commercials, event coverage, product demos, and testimonial videos that stop the scroll and compel action.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">02</div>
-      <div class="svc-icon">🎨</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2Z"/></svg>
+      </div>
       <div class="svc-name">Brand Identity Design</div>
       <p class="svc-desc">Logo, full visual identity systems, brand guidelines, and design assets that make you look world-class and consistent at every single touchpoint.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">03</div>
-      <div class="svc-icon">📱</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+      </div>
       <div class="svc-name">Social Media Management</div>
       <p class="svc-desc">Strategy, content creation, community management, and growth across Instagram, TikTok, X, LinkedIn, YouTube, and Facebook.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">04</div>
-      <div class="svc-icon">📸</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+      </div>
       <div class="svc-name">Photography</div>
       <p class="svc-desc">Commercial photography, product shoots, event coverage, portrait sessions, and editorial imagery that tells your brand story beautifully.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">05</div>
-      <div class="svc-icon">📣</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+      </div>
       <div class="svc-name">PR & Communications</div>
       <p class="svc-desc">Strategic press releases, media relations, crisis communication, and brand messaging that builds lasting credibility and shapes public perception.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">06</div>
-      <div class="svc-icon">🚀</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
       <div class="svc-name">Digital Marketing</div>
       <p class="svc-desc">Performance campaigns, SEO content, paid ads, email marketing, and reporting dashboards built to maximize every single penny you invest in growth.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">07</div>
-      <div class="svc-icon">✂️</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" x2="8.12" y1="4" y2="15.88"/><line x1="14.47" x2="20" y1="14.48" y2="20"/><line x1="8.12" x2="12" y1="8.12" y2="12"/></svg>
+      </div>
       <div class="svc-name">Video Editing</div>
       <p class="svc-desc">Professional post-production editing, color grading, sound design, motion titles, and multi-format exports optimized for every platform and screen.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">08</div>
-      <div class="svc-icon">🖌️</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+      </div>
       <div class="svc-name">Graphics Design</div>
       <p class="svc-desc">Social media graphics, flyers, banners, infographics, packaging, and print materials designed to stop the scroll and command attention.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">09</div>
-      <div class="svc-icon">🧊</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5v8Z"/><path d="m3.27 6.96 8.73 4.91 8.73-4.91"/><path d="M12 22.08V12"/></svg>
+      </div>
       <div class="svc-name">3D Modelling & Animation</div>
       <p class="svc-desc">Photorealistic 3D product renders, architectural visualizations, character models, and full 3D animations that make your brand unforgettable.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">10</div>
-      <div class="svc-icon">🎞️</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/></svg>
+      </div>
       <div class="svc-name">Motion Graphics</div>
       <p class="svc-desc">Animated logos, kinetic typography, explainer animations, broadcast graphics, and motion design that brings your brand story to life on screen.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">11</div>
-      <div class="svc-icon">🎙️</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+      </div>
       <div class="svc-name">Podcast Production</div>
       <p class="svc-desc">End-to-end podcast setup, recording, editing, cover art, and multi-platform distribution, turning your voice into a powerful brand-building tool.</p>
     </div>
     <div class="svc-card">
       <div class="svc-n">12</div>
-      <div class="svc-icon">🚀</div>
+      <div class="svc-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      </div>
       <div class="svc-name">Content Marketing</div>
-      <p class="svc-desc">Expressing your brand through content re-strategized to bring in sales .</p>
+      <p class="svc-desc">Expressing your brand through content re-strategized to drive qualified engagement and high-ticket customer acquisition.</p>
     </div>
-    <!--<div class="svc-card">
-      <div class="svc-n">12</div>
-      <div class="svc-icon">🌐</div>
-      <div class="svc-name">Web Design & Development</div>
-      <p class="svc-desc">High-converting landing pages, full websites, and e-commerce stores designed to look stunning, load fast, and turn visitors into paying customers.</p>
-    </div>-->
   </div>
 </section>
 
@@ -1615,26 +1882,29 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   -->
   <div class="team-grid reveal">
     <div class="team-card">
-      <div class="team-photo" style="background-image:url('Team/Prince2.jpg')">
-        <!--<div class="team-ph">GT</div>-->
+      <div class="team-photo-wrap">
+        <img src="Team/Prince2.jpg" alt="Joseph Prince" class="team-img team-img-default" loading="lazy">
+        <img src="Team/Princecool.jpg" alt="Joseph Prince" class="team-img team-img-hover" loading="lazy">
       </div>
       <div class="team-info">
-        <div class="team-name">Joseph Prince <!-- DEVELOPER: Real name --></div>
+        <div class="team-name">Joseph Prince</div>
         <div class="team-role">CEO</div>
       </div>
     </div>
     <div class="team-card">
-      <div class="team-photo" style="background-image:url('Team/saka1.webp')">
-        <!--<div class="team-ph">GT</div>-->
+      <div class="team-photo-wrap">
+        <img src="Team/saka1.webp" alt="Saka Oladipupo" class="team-img team-img-default" loading="lazy">
+        <img src="Team/sakacool.jpg" alt="Saka Oladipupo" class="team-img team-img-hover" loading="lazy">
       </div>
       <div class="team-info">
-        <div class="team-name">Saka Oladipupo<!-- DEVELOPER: Real name --></div>
+        <div class="team-name">Saka Oladipupo</div>
         <div class="team-role">COO</div>
       </div>
     </div>
     <div class="team-card">
-      <div class="team-photo" style="background-image:url('Team/smk1.webp')">
-        <!--<div class="team-ph">GT</div>-->
+      <div class="team-photo-wrap">
+        <img src="Team/smk1.webp" alt="Oni Ayomide" class="team-img team-img-default" loading="lazy">
+        <img src="Team/smkcool.jpg" alt="Oni Ayomide" class="team-img team-img-hover" loading="lazy">
       </div>
       <div class="team-info">
         <div class="team-name">Oni Ayomide</div>
@@ -1642,8 +1912,9 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
       </div>
     </div>
     <div class="team-card">
-      <div class="team-photo" style="background-image:url('Team/Precious1.webp')">
-        <!--<div class="team-ph">GT</div>-->
+      <div class="team-photo-wrap">
+        <img src="Team/Precious1.webp" alt="Ohiomah Precious" class="team-img team-img-default" loading="lazy">
+        <img src="Team/preciouscool.jpg" alt="Ohiomah Precious" class="team-img team-img-hover" loading="lazy">
       </div>
       <div class="team-info">
         <div class="team-name">Ohiomah Precious</div>
@@ -1651,7 +1922,9 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
       </div>
     </div>
     <div class="team-card">
-      <div class="team-photo" style="background-image:url('Team/Praise1.webp')">
+      <div class="team-photo-wrap">
+        <img src="Team/Praise1.webp" alt="David Praise" class="team-img team-img-default" loading="lazy">
+        <img src="Team/praisecool.jpg" alt="David Praise" class="team-img team-img-hover" loading="lazy">
       </div>
       <div class="team-info">
         <div class="team-name">David Praise</div>
@@ -2038,6 +2311,50 @@ window.addEventListener("load", function () {
   });
 
 });
+</script>
+
+<script>
+/* ── ECHO REVIEWS SCROLL PARALLAX HANDLER (echo-ng.com style) ── */
+(function() {
+  const echoSection = document.querySelector('.echo-section');
+  const echoHeader = document.querySelector('.echo-heading-shell');
+  const bubbles = document.querySelectorAll('#echoBubblesLayer .echo-bubble');
+  
+  if (!echoSection || !echoHeader) return;
+
+  function onEchoScroll() {
+    const rect = echoSection.getBoundingClientRect();
+    const windowH = window.innerHeight;
+
+    if (rect.bottom < 0 || rect.top > windowH) return;
+
+    // Scroll progress through the section (0 to 1)
+    const totalDist = echoSection.offsetHeight - windowH;
+    const current = -rect.top;
+    const progress = Math.min(1, Math.max(0, current / totalDist));
+
+    // Calculate full travel distance so it scrolls all the way down to the end of the section
+    const maxTravel = echoSection.offsetHeight - echoHeader.offsetHeight - 180;
+    const yMove = progress * Math.max(0, maxTravel);
+
+    // Pure vertical translation — keeping horizontal centering 100% symmetric via left:0, right:0, margin:auto
+    echoHeader.style.transform = `translateY(${yMove.toFixed(1)}px)`;
+
+    // Parallax movement on floating bubbles
+    bubbles.forEach((b, idx) => {
+      const speed = parseFloat(b.dataset.speed || 0.3);
+      const yOffset = (progress - 0.5) * -180 * speed;
+      const xOffset = Math.sin((progress * 3.5) + idx) * 8;
+      b.style.transform = `translate3d(${xOffset.toFixed(1)}px, ${yOffset.toFixed(1)}px, 0)`;
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(onEchoScroll);
+  }, { passive: true });
+  window.addEventListener('resize', onEchoScroll, { passive: true });
+  onEchoScroll();
+})();
 </script>
 </body>
 </html>
