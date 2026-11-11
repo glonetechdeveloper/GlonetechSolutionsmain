@@ -105,7 +105,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 
 /* AWARDS STRIP */
 .awards-strip{background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:16px 0}
-.awards-track{display:flex;animation:scrollLeft 26s linear infinite;width:max-content}
+.awards-track{display:flex;animation:scrollLeft 26s linear infinite;width:max-content;will-change:transform}
 .award-item{padding:0 50px;white-space:nowrap;font-family:var(--font-head);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.22);display:flex;align-items:center;gap:10px}
 /* DEVELOPER: Replace .award-item spans with actual award logo images:
    <img src="assets/award-google-partner.png" alt="Google Partner" style="height:36px;opacity:.5;filter:grayscale(1)">
@@ -129,6 +129,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
   gap: 35px;
   width: max-content;
   animation: scrollInfinite 40s linear infinite;
+  will-change: transform;
 }
 
 /* Continuous motion */
@@ -433,7 +434,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 .seen-strip{background:var(--black);padding:50px 40px;border-bottom:1px solid var(--border)}
 .seen-label{font-family:var(--font-head);font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:2.5rem}
 .seen-logos{overflow:hidden}
-.seen-track{display:flex;align-items:center;gap:60px;animation:scrollLeft 30s linear infinite;width:max-content}
+.seen-track{display:flex;align-items:center;gap:60px;animation:scrollLeft 30s linear infinite;width:max-content;will-change:transform}
 /* DEVELOPER: Replace .logo-ph spans with actual client logo <img> tags:
    <img src="assets/client-logo-name.png" alt="Client Name" style="height:30px;opacity:.35;filter:grayscale(1) brightness(2)"> */
 .logo-ph{font-family:var(--font-head);font-size:13px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.18);white-space:nowrap}
@@ -548,8 +549,6 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
   margin:0 auto;
   text-align:center;
 }
-  margin:0 auto;
-}
 
 /* Bubbles Layer (Z-index above the heading shell so bubbles form a dense cloud around/in front) */
 .echo-bubbles-layer{
@@ -557,6 +556,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
   inset:0;
   pointer-events:none;
   z-index:5;
+  contain:layout style;
 }
 .echo-bubble{
   position:absolute;
@@ -568,21 +568,22 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
   font-weight:700;
   font-size:clamp(12px,1.05vw,15px);
   line-height:1.25;
-  box-shadow:0 10px 24px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.25);
-  filter:drop-shadow(0 8px 16px rgba(0,0,0,.45));
+  box-shadow:0 8px 24px rgba(0,0,0,.5);
   white-space:nowrap;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   pointer-events:auto;
   cursor:default;
-  transition:transform .2s cubic-bezier(0.2,0.8,0.2,1),filter .2s ease;
+  will-change:transform;
+  contain:paint;
   user-select:none;
 }
 .echo-bubble:hover{
   transform:scale(1.08) !important;
-  filter:drop-shadow(0 18px 36px rgba(0,0,0,.85));
+  box-shadow:0 16px 36px rgba(0,0,0,.85);
   z-index:50 !important;
+  transition:transform .15s ease, box-shadow .15s ease;
 }
 .echo-bubble::after{
   content:'';
@@ -915,7 +916,8 @@ footer{animation:fadeIn .6s ease both}
       muted
       loop
       playsinline
-      poster="/assets/pexels-chuck-2744982.jpg"
+      preload="metadata"
+      poster="assets/hero-poster.jpg"
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"
     >
       <source src="video/WEBSITE_1.webm" type="video/webm">
@@ -959,30 +961,28 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
 
     <!-- Repeat cards twice for seamless loop -->
 
-    <div class="sp-card"><img src="./Graphics/1.png"></div>
-    <!--<div class="sp-card"><img src="./Graphics/ALL-STARS @4x.png"></div>-->
-    <div class="sp-card"><img src="./Graphics/Magazine.png"></div>
-    <div class="sp-card"><img src="./Graphics/Starting.png"></div>
-    <div class="sp-card"><img src="./Graphics/2.jpg"></div>
-    <div class="sp-card"><img src="./Graphics/2.png"></div>
-    <div class="sp-card"><img src="./Graphics/2 (2).jpg"></div>
-    <div class="sp-card"><img src="./Graphics/3.png"></div>
-    <div class="sp-card"><img src="./Graphics/Artboard 4.jpg"></div>
-    <div class="sp-card"><img src="./Graphics/Blood-port.jpg"></div>
-    <div class="sp-card"><img src="./Graphics/Ara.jpg"></div>
+    <div class="sp-card"><img src="./Graphics/1.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Magazine.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Starting.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/2.jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/2.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/2 (2).jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/3.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Artboard 4.jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Blood-port.jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Ara.jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
     
 
-    <div class="sp-card"><img src="./Graphics/1.png"></div>
-    <!--<div class="sp-card"><img src="./Graphics/ALL-STARS @4x.png"></div>-->
-    <div class="sp-card"><img src="./Graphics/Magazine.png"></div>
-    <div class="sp-card"><img src="./Graphics/Starting.png"></div>
-    <div class="sp-card"><img src="./Graphics/2.jpg"></div>
-    <div class="sp-card"><img src="./Graphics/2.png"></div>
-    <div class="sp-card"><img src="./Graphics/2 (2).jpg"></div>
-    <div class="sp-card"><img src="./Graphics/3.png"></div>
-    <div class="sp-card"><img src="./Graphics/Artboard 4.jpg"></div>
-    <div class="sp-card"><img src="./Graphics/Blood-port.jpg"></div>
-    <div class="sp-card"><img src="./Graphics/Ara.jpg"></div>
+    <div class="sp-card"><img src="./Graphics/1.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Magazine.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Starting.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/2.jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/2.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/2 (2).jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/3.png" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Artboard 4.jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Blood-port.jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
+    <div class="sp-card"><img src="./Graphics/Ara.jpg" alt="Creative Project" loading="lazy" decoding="async"></div>
 
   </div>
 
@@ -1331,35 +1331,35 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   -->
   <div class="seen-logos">
     <div class="seen-track">
-      <img src="logos/pj.png" alt="[Client Name]" style="height:130px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/move.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/heroes.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/rccg.PNG" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/redeem.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/redef.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/resobridge.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/genzeal.png" alt="[Client Name]" style="height:100px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/srat.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/campus.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/bmf.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/CIMUN_-removebg-preview.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/Bloom.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/CIMUN2-removebg-preview.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/pj.png" alt="Client Partner" loading="lazy" decoding="async" style="height:130px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/move.png" alt="Client Partner" loading="lazy" decoding="async" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/heroes.png" alt="Client Partner" loading="lazy" decoding="async" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/rccg.PNG" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/redeem.png" alt="Client Partner" loading="lazy" decoding="async" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/redef.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/resobridge.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/genzeal.png" alt="Client Partner" loading="lazy" decoding="async" style="height:100px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/srat.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/campus.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/bmf.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CIMUN_-removebg-preview.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/Bloom.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CIMUN2-removebg-preview.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
       <!-- Duplicate for seamless loop -->
-      <img src="logos/pj.png" alt="[Client Name]" style="height:130px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/move.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/heroes.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/rccg.PNG" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/redeem.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/redef.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/resobridge.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/genzeal.png" alt="[Client Name]" style="height:100px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/srat.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/campus.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/bmf.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/CIMUN_-removebg-preview.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/Bloom.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
-      <img src="logos/CIMUN2-removebg-preview.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/pj.png" alt="Client Partner" loading="lazy" decoding="async" style="height:130px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/move.png" alt="Client Partner" loading="lazy" decoding="async" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/heroes.png" alt="Client Partner" loading="lazy" decoding="async" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/rccg.PNG" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/redeem.png" alt="Client Partner" loading="lazy" decoding="async" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/redef.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/resobridge.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/genzeal.png" alt="Client Partner" loading="lazy" decoding="async" style="height:100px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/srat.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/campus.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/bmf.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CIMUN_-removebg-preview.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/Bloom.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CIMUN2-removebg-preview.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
     </div>
   </div>
 </div>
@@ -1748,7 +1748,8 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
       - Behind-the-scenes production shot
       Recommended: Portrait orientation, high quality
       -->
-      <img src="Team/Group.webp" alt="Glonetech Solutions Founder"
+      <img src="Team/Group.webp" alt="Glonetech Solutions Founder & Team"
+           loading="lazy" decoding="async"
            style="width:100%;height:auto;display:block">
     </div>
     <div class="about-content">
@@ -1883,8 +1884,8 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   <div class="team-grid reveal">
     <div class="team-card">
       <div class="team-photo-wrap">
-        <img src="Team/Prince2.jpg" alt="Joseph Prince" class="team-img team-img-default" loading="lazy">
-        <img src="Team/Princecool.jpg" alt="Joseph Prince" class="team-img team-img-hover" loading="lazy">
+        <img src="Team/Prince.jpg" alt="Joseph Prince" class="team-img team-img-default" loading="lazy" decoding="async">
+        <img src="Team/Princecool.jpg" alt="Joseph Prince" class="team-img team-img-hover" loading="lazy" decoding="async">
       </div>
       <div class="team-info">
         <div class="team-name">Joseph Prince</div>
@@ -1893,8 +1894,8 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
     </div>
     <div class="team-card">
       <div class="team-photo-wrap">
-        <img src="Team/saka1.webp" alt="Saka Oladipupo" class="team-img team-img-default" loading="lazy">
-        <img src="Team/sakacool.jpg" alt="Saka Oladipupo" class="team-img team-img-hover" loading="lazy">
+        <img src="Team/saka.jpg" alt="Saka Oladipupo" class="team-img team-img-default" loading="lazy" decoding="async">
+        <img src="Team/sakacool.jpg" alt="Saka Oladipupo" class="team-img team-img-hover" loading="lazy" decoding="async">
       </div>
       <div class="team-info">
         <div class="team-name">Saka Oladipupo</div>
@@ -1903,8 +1904,8 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
     </div>
     <div class="team-card">
       <div class="team-photo-wrap">
-        <img src="Team/smk1.webp" alt="Oni Ayomide" class="team-img team-img-default" loading="lazy">
-        <img src="Team/smkcool.jpg" alt="Oni Ayomide" class="team-img team-img-hover" loading="lazy">
+        <img src="Team/smk.jpg" alt="Oni Ayomide" class="team-img team-img-default" loading="lazy" decoding="async">
+        <img src="Team/smkcool.jpg" alt="Oni Ayomide" class="team-img team-img-hover" loading="lazy" decoding="async">
       </div>
       <div class="team-info">
         <div class="team-name">Oni Ayomide</div>
@@ -1913,8 +1914,8 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
     </div>
     <div class="team-card">
       <div class="team-photo-wrap">
-        <img src="Team/Precious1.webp" alt="Ohiomah Precious" class="team-img team-img-default" loading="lazy">
-        <img src="Team/preciouscool.jpg" alt="Ohiomah Precious" class="team-img team-img-hover" loading="lazy">
+        <img src="Team/Precious.jpg" alt="Ohiomah Precious" class="team-img team-img-default" loading="lazy" decoding="async">
+        <img src="Team/preciouscool.jpg" alt="Ohiomah Precious" class="team-img team-img-hover" loading="lazy" decoding="async">
       </div>
       <div class="team-info">
         <div class="team-name">Ohiomah Precious</div>
@@ -1923,8 +1924,8 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
     </div>
     <div class="team-card">
       <div class="team-photo-wrap">
-        <img src="Team/Praise1.webp" alt="David Praise" class="team-img team-img-default" loading="lazy">
-        <img src="Team/praisecool.jpg" alt="David Praise" class="team-img team-img-hover" loading="lazy">
+        <img src="Team/Praise.jpg" alt="David Praise" class="team-img team-img-default" loading="lazy" decoding="async">
+        <img src="Team/praisecool.jpg" alt="David Praise" class="team-img team-img-hover" loading="lazy" decoding="async">
       </div>
       <div class="team-info">
         <div class="team-name">David Praise</div>
@@ -2318,42 +2319,73 @@ window.addEventListener("load", function () {
 (function() {
   const echoSection = document.querySelector('.echo-section');
   const echoHeader = document.querySelector('.echo-heading-shell');
-  const bubbles = document.querySelectorAll('#echoBubblesLayer .echo-bubble');
+  const bubbleEls = document.querySelectorAll('#echoBubblesLayer .echo-bubble');
   
   if (!echoSection || !echoHeader) return;
 
-  function onEchoScroll() {
+  let ticking = false;
+  let sectionH = echoSection.offsetHeight;
+  let headerH = echoHeader.offsetHeight;
+  let windowH = window.innerHeight;
+
+  function updateMetrics() {
+    sectionH = echoSection.offsetHeight;
+    headerH = echoHeader.offsetHeight;
+    windowH = window.innerHeight;
+  }
+
+  // Pre-cache bubble instances and speeds to avoid DOM attribute reads during scroll
+  const bubbleData = Array.from(bubbleEls).map((b, idx) => ({
+    el: b,
+    speed: parseFloat(b.dataset.speed || 0.3),
+    idx: idx
+  }));
+
+  function renderEchoScroll() {
     const rect = echoSection.getBoundingClientRect();
-    const windowH = window.innerHeight;
 
     if (rect.bottom < 0 || rect.top > windowH) return;
 
     // Scroll progress through the section (0 to 1)
-    const totalDist = echoSection.offsetHeight - windowH;
+    const totalDist = sectionH - windowH;
     const current = -rect.top;
-    const progress = Math.min(1, Math.max(0, current / totalDist));
+    const progress = Math.min(1, Math.max(0, current / (totalDist || 1)));
 
     // Calculate full travel distance so it scrolls all the way down to the end of the section
-    const maxTravel = echoSection.offsetHeight - echoHeader.offsetHeight - 180;
-    const yMove = progress * Math.max(0, maxTravel);
+    const maxTravel = Math.max(0, sectionH - headerH - 180);
+    const yMove = progress * maxTravel;
 
-    // Pure vertical translation — keeping horizontal centering 100% symmetric via left:0, right:0, margin:auto
-    echoHeader.style.transform = `translateY(${yMove.toFixed(1)}px)`;
+    // Pure vertical translation with GPU acceleration
+    echoHeader.style.transform = `translate3d(0, ${yMove.toFixed(1)}px, 0)`;
 
-    // Parallax movement on floating bubbles
-    bubbles.forEach((b, idx) => {
-      const speed = parseFloat(b.dataset.speed || 0.3);
-      const yOffset = (progress - 0.5) * -180 * speed;
-      const xOffset = Math.sin((progress * 3.5) + idx) * 8;
-      b.style.transform = `translate3d(${xOffset.toFixed(1)}px, ${yOffset.toFixed(1)}px, 0)`;
-    });
+    // Parallax movement on floating bubbles using translate3d
+    const pTimes35 = progress * 3.5;
+    for (let i = 0; i < bubbleData.length; i++) {
+      const b = bubbleData[i];
+      const yOffset = (progress - 0.5) * -180 * b.speed;
+      const xOffset = Math.sin(pTimes35 + b.idx) * 8;
+      b.el.style.transform = `translate3d(${xOffset.toFixed(1)}px, ${yOffset.toFixed(1)}px, 0)`;
+    }
   }
 
-  window.addEventListener('scroll', () => {
-    requestAnimationFrame(onEchoScroll);
+  function onEchoScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        renderEchoScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onEchoScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    updateMetrics();
+    onEchoScroll();
   }, { passive: true });
-  window.addEventListener('resize', onEchoScroll, { passive: true });
-  onEchoScroll();
+  
+  // Initial render
+  renderEchoScroll();
 })();
 </script>
 </body>
