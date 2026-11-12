@@ -70,7 +70,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 .nav-cta:hover{background:var(--accent-dark)!important}
 .hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
 .hamburger span{display:block;width:26px;height:2px;background:white;transition:.3s}
-.mobile-nav{display:none;position:fixed;inset:0;background:var(--black);z-index:800;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--black);z-index:800;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;padding:80px 20px 50px;gap:1.8rem;-webkit-overflow-scrolling:touch}
 .mobile-nav.open{display:flex}
 .mobile-nav a{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--white)}
 
@@ -462,34 +462,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 .cs-client{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 .cs-result{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--white);line-height:1.3}
 
-/* PLATFORM (PAIN POINTS & THE GLONETECH STANDARD) */
-#platform{background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 40px}
-.platform-inner{max-width:1140px;margin:0 auto;text-align:center}
-.platform-title{font-family:var(--font-head);font-size:clamp(2rem,4.5vw,3.8rem);font-weight:900;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1.5rem}
-.platform-sub{font-family:var(--font-body);font-size:18px;color:var(--muted);line-height:1.8;max-width:780px;margin:0 auto 3.5rem}
-
-/* Pain points bento grid */
-.pp-bento{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;text-align:left;margin-bottom:3.5rem}
-.pp-col{display:flex;flex-direction:column;gap:22px}
-.pp-card{background:#111216;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:2.2rem;position:relative;overflow:hidden;transition:border-color .3s ease,box-shadow .3s ease}
-.pp-card:hover{border-color:rgba(255,255,255,.2);box-shadow:0 16px 40px rgba(0,0,0,.6)}
-
-.pp-featured{min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:2.5rem;background-size:cover;background-position:center;position:relative}
-.pp-featured::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.3) 0%,rgba(10,10,10,.82) 45%,rgba(10,10,10,.98) 100%)}
-.pp-featured-content{position:relative;z-index:2}
-
-.pp-tag{display:inline-block;font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:5px 12px;border-radius:6px;margin-bottom:1rem}
-.pp-title{font-family:var(--font-head);font-size:clamp(1.25rem,2vw,1.6rem);font-weight:800;color:var(--white);line-height:1.25;margin-bottom:.8rem}
-.pp-desc{font-family:var(--font-body);font-size:14.5px;color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:1rem}
-.pp-solution{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--white);border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;line-height:1.6}
-.pp-solution span{color:var(--accent);display:inline-block;margin-right:6px}
-
-.pp-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.2rem}
-.pp-chip{background:rgba(255,255,255,.06);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.9);font-family:var(--font-head);font-size:11px;font-weight:700;padding:6px 14px;border-radius:6px}
-
-@media(max-width:880px){
-  .pp-bento{grid-template-columns:1fr}
-}
+/* PLATFORM & PAIN POINTS - Migrated to .stickman-sell-section */
 
 /* ════════════════════ ECHO STYLE REVIEWS SECTION ════════════════════ */
 .echo-section{
@@ -634,50 +607,7 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 .about-stars{display:flex;align-items:center;gap:8px;margin-top:1.5rem;font-family:var(--font-head);font-size:13px;color:var(--muted)}
 .about-stars .stars{font-size:17px}
 
-/* SERVICES */
-#services{background:var(--black);border-top:1px solid var(--border);padding:100px 40px}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);max-width:1100px;margin:0 auto}
-.svc-card{background:#0d0d0d;padding:2.8rem 2.2rem;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.05);transition:background-color .3s ease,border-color .3s ease}
-.svc-card:hover{background:#13151a;border-color:rgba(26,111,255,.35)}
-.svc-n{font-family:var(--font-head);font-size:2.4rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;position:absolute;top:1.5rem;right:1.6rem;letter-spacing:-1px;user-select:none;transition:color .3s ease}
-.svc-card:hover .svc-n{color:rgba(26,111,255,.2)}
-.svc-icon-box{width:46px;height:46px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);display:inline-flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1.4rem;transition:all .3s ease}
-.svc-card:hover .svc-icon-box{background:rgba(26,111,255,.12);border-color:rgba(26,111,255,.35);color:#fff}
-.svc-icon-box svg{width:22px;height:22px}
-.svc-name{font-family:var(--font-head);font-size:1.08rem;font-weight:800;letter-spacing:-.2px;margin-bottom:.7rem;color:var(--white)}
-.svc-desc{font-family:var(--font-body);font-size:14px;color:#8c8c8c;line-height:1.7}
-
-@media(max-width:850px){
-  .svc-grid{grid-template-columns:repeat(2, 1fr)}
-}
-@media(max-width:550px){
-  .svc-grid{grid-template-columns:1fr}
-}
-
-/* TEAM */
-#team{background:var(--off-black);border-top:1px solid var(--border);padding:100px 40px}
-.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:1100px;margin:0 auto}
-.team-card{border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:border-color .25s ease,box-shadow .25s ease}
-.team-card:hover{border-color:rgba(26,111,255,.4);box-shadow:0 12px 35px rgba(26,111,255,.18)}
-.team-photo-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;background:#111}
-.team-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease,transform .55s cubic-bezier(0.2,0.8,0.2,1),filter .45s ease}
-.team-img-default{opacity:1;z-index:1}
-.team-img-hover{opacity:0;z-index:2;filter:grayscale(100%) contrast(1.15) brightness(0.95);transform:scale(1.04)}
-.team-card:hover .team-img-hover{opacity:1;transform:scale(1)}
-.team-card:hover .team-img-default{opacity:0;transform:scale(0.98)}
-.team-info{padding:1.2rem 1.4rem;background:var(--card);position:relative;z-index:3}
-.team-name{font-family:var(--font-head);font-size:.9rem;font-weight:800}
-.team-role{font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--accent);margin-top:3px;text-transform:uppercase}
-
-@media(max-width:950px){
-  .team-grid{grid-template-columns:repeat(3, 1fr)}
-}
-@media(max-width:640px){
-  .team-grid{grid-template-columns:repeat(2, 1fr)}
-}
-@media(max-width:420px){
-  .team-grid{grid-template-columns:1fr}
-}
+/* SERVICES & TEAM - Migrated to .premium-services-section and .team-section-structure */
 
 /* PROCESS */
 #process{background:var(--black);border-top:1px solid var(--border);padding:100px 40px}
@@ -694,9 +624,20 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 #cta::before{content:'GLONETECH';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-head);font-size:25vw;font-weight:900;color:rgba(255,255,255,.04);white-space:nowrap;pointer-events:none;line-height:1;letter-spacing:-5px}
 .cta-inner{position:relative;z-index:1;max-width:800px;margin:0 auto}
 .cta-title{font-family:var(--font-head);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:900;color:#fff;line-height:.95;letter-spacing:-2px;margin-bottom:1.5rem}
-.cta-sub{font-family:var(--font-body);font-size:1.1rem;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 3rem;line-height:1.75}
-.cta-btn{display:inline-block;background:var(--accent);color:#fff;padding:22px 52px;border-radius:6px;font-family:var(--font-head);font-size:18px;font-weight:900;letter-spacing:.5px;transition:transform .15s,box-shadow .15s;margin-bottom:1.5rem}
-.cta-btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta-sub{font-family:var(--font-body);font-size:1.1rem;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 2.5rem;line-height:1.75}
+
+.cta-btn-stage{position:relative;display:inline-block;margin-top:55px;margin-bottom:1.8rem}
+.cta-stickman-wrapper{position:absolute;bottom:calc(100% - 24px);left:50%;transform:translateX(-50%);width:180px;height:120px;pointer-events:none;z-index:1;transition:transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);animation:ctaStickBob 2.4s ease-in-out infinite}
+@keyframes ctaStickBob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+.cta-btn-stage:hover .cta-stickman-wrapper{animation:none;transform:translateX(-50%) translateY(-12px) scale(1.08)}
+.cta-stickman-svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 14px rgba(0,0,0,.45))}
+.cta-stick-bubble{position:absolute;top:-44px;left:50%;transform:translateX(-50%);background:#ffffff;color:#0a0a0a;font-family:var(--font-head);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.8px;padding:6px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:all .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);z-index:10}
+.cta-stick-bubble::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid #ffffff;transition:border-top-color .2s ease}
+.cta-stick-bubble.is-now{background:#ff2a44;color:#ffffff;box-shadow:0 0 25px rgba(255,42,68,.75)}
+.cta-stick-bubble.is-now::after{border-top-color:#ff2a44}
+
+.cta-btn{position:relative;z-index:5;display:inline-block;background:var(--accent);color:#fff;padding:22px 52px;border-radius:6px;font-family:var(--font-head);font-size:18px;font-weight:900;letter-spacing:.5px;transition:transform .15s,box-shadow .15s}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.35)}
 .cta-stars-wrap{font-family:var(--font-head);font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;gap:8px}
 .cta-stars-wrap .stars{color:#FFD700}
 .cta-note{font-family:var(--font-head);font-size:12px;font-style:italic;color:rgba(255,255,255,.4);margin-top:1rem}
@@ -838,6 +779,534 @@ nav{animation:fadeInDown .6s .1s ease both}
 /* Footer fade */
 footer{animation:fadeIn .6s ease both}
 
+
+
+/* ════════════════════ NAV DROPDOWN (Image 4) ════════════════════ */
+.nav-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  color: var(--muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color .2s;
+  letter-spacing: .3px;
+}
+.nav-dropdown-btn:hover, .nav-dropdown-wrapper:hover .nav-dropdown-btn {
+  color: var(--white);
+}
+.nav-dropdown-btn svg {
+  width: 12px;
+  height: 12px;
+  transition: transform .25s ease;
+}
+.nav-dropdown-wrapper:hover .nav-dropdown-btn svg {
+  transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 270px;
+  background: rgba(14, 14, 14, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 24px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s;
+  z-index: 1000;
+}
+/* White top pill / indicator from Image 4 */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 28px;
+  width: 20px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
+}
+.nav-dropdown-wrapper:hover .nav-dropdown-menu,
+.nav-dropdown-wrapper:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-dropdown-item {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #cccccc;
+  padding: 9px 12px;
+  border-radius: 8px;
+  transition: all .2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  padding-left: 15px;
+}
+.mobile-dropdown-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--white);
+  cursor: pointer;
+}
+.mobile-dropdown-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+.mobile-dropdown-sub a {
+  font-size: 1.1rem !important;
+  color: var(--muted) !important;
+}
+
+/* ════════════════════ DEPLOYMENT PARTNERS (Image 1) ════════════════════ */
+.deploy-partners-section {
+  background: #000000;
+  padding: 100px 40px;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+.deploy-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.deploy-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 300;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  margin-bottom: 50px;
+  text-align: left;
+}
+.deploy-title em {
+  font-style: italic;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: #ffffff;
+}
+.deploy-logo-wall {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.deploy-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.d-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-size: clamp(14px, 1.4vw, 19px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: -0.3px;
+  transition: all .25s ease;
+  user-select: none;
+  cursor: default;
+}
+.d-logo:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+.d-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.font-google { font-weight: 800; letter-spacing: -0.5px; }
+.font-gemini { font-weight: 700; }
+.font-figma { font-weight: 700; }
+.font-canva { font-family: 'Brush Script MT', cursive, sans-serif; font-size: 24px; font-weight: 400; }
+.font-adobe { font-weight: 800; letter-spacing: 1px; }
+.font-sony { font-family: serif; font-weight: 800; letter-spacing: 2px; }
+.font-chatgpt { font-weight: 700; }
+.font-freepik { font-weight: 900; letter-spacing: 1px; }
+.font-wp { font-weight: 800; }
+.font-shutter { font-weight: 600; letter-spacing: -0.5px; }
+.font-framer { font-weight: 800; }
+.font-python { font-weight: 700; }
+.font-hubspot { font-weight: 800; }
+.font-lenovo { font-weight: 800; letter-spacing: 1px; }
+.font-semrush { font-weight: 800; }
+.font-ahrefs { font-weight: 800; }
+.font-apple { font-weight: 600; }
+.font-dji { font-weight: 900; letter-spacing: 1px; }
+.font-brand24 { font-weight: 900; }
+.font-ubersuggest { font-weight: 700; }
+
+/* ════════════════════ STICKMAN SELLING ANIMATION (Image 5) ════════════════════ */
+.stickman-sell-section {
+  background: #080808;
+  padding: 110px 40px;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.stickman-sell-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  text-align: center;
+}
+.stickman-theater {
+  position: relative;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 60px 40px 50px;
+  margin-top: 40px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+.stickman-bubble-wrap {
+  min-height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.stickman-bubble {
+  background: #ffffff;
+  color: #000000;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.35;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: all .25s ease;
+  max-width: 650px;
+}
+.stickman-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  display: block;
+  width: 0;
+}
+.stickman-stage {
+  height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto 30px;
+}
+.stickman-svg {
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+  transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.stickman-svg:hover {
+  transform: scale(1.1);
+}
+.stickman-controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 0 auto;
+  max-width: 900px;
+}
+.stick-step-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 14px 12px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .25s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stick-step-btn .step-num {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.stick-step-btn .step-text {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  color: #cccccc;
+}
+.stick-step-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.stick-step-btn.active {
+  background: rgba(26, 111, 255, 0.12);
+  border-color: var(--accent);
+}
+.stick-step-btn.active .step-text {
+  color: #ffffff;
+}
+@media(max-width: 850px) {
+  .stickman-controls { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ════════════════════ WHAT WE DO SECTION (Image 3) ════════════════════ */
+.premium-services-section {
+  background: #000000;
+  position: relative;
+  padding: 120px 40px;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+.premium-services-ambient {
+  position: absolute;
+  top: -100px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(235, 78, 142, 0.15) 0%, rgba(26, 111, 255, 0.1) 40%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.premium-services-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.premium-services-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+  font-weight: 300;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  margin-bottom: 70px;
+  text-align: left;
+}
+.premium-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 60px;
+}
+.premium-svc-col {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.premium-svc-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  text-decoration: none;
+  transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.premium-svc-item:hover {
+  border-bottom-color: var(--accent);
+  transform: translateX(8px);
+}
+.premium-svc-icon {
+  width: 24px;
+  height: 24px;
+  stroke: rgba(255, 255, 255, 0.85);
+  flex-shrink: 0;
+  transition: all .25s ease;
+}
+.premium-svc-item:hover .premium-svc-icon {
+  stroke: var(--accent);
+  transform: scale(1.12);
+}
+.premium-svc-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  flex-grow: 1;
+}
+.premium-svc-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all .25s ease;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 800;
+}
+.premium-svc-item:hover .premium-svc-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media(max-width: 1050px) {
+  .premium-services-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 40px; }
+}
+@media(max-width: 580px) {
+  .premium-services-grid { grid-template-columns: 1fr; }
+}
+
+/* ════════════════════ OUR TEAM STRUCTURE (Image 2) ════════════════════ */
+.team-section-structure {
+  background: #000000;
+  padding: 110px 40px;
+  border-top: 1px solid var(--border);
+}
+.team-header-structure {
+  max-width: 1300px;
+  margin: 0 auto 50px;
+  text-align: left;
+}
+.team-title-structure {
+  font-family: var(--font-head);
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+  font-weight: 300;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.team-title-structure em {
+  font-style: italic;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: #ffffff;
+}
+.team-sub-structure {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.2px;
+}
+.team-structure-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.team-struct-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.team-struct-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+}
+.team-struct-photo {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #141414;
+}
+.team-img-main, .team-img-grayscale, .team-avatar-img, .team-real-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .35s ease;
+}
+.team-img-main, .team-avatar-img {
+  opacity: 1;
+  z-index: 1;
+}
+.team-img-grayscale, .team-real-img {
+  opacity: 0;
+  z-index: 2;
+  filter: grayscale(100%) contrast(1.1) brightness(0.95);
+}
+.team-struct-card:hover .team-img-grayscale,
+.team-struct-card:hover .team-real-img {
+  opacity: 1;
+}
+.team-struct-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 18px 18px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+.team-struct-name {
+  font-family: var(--font-head);
+  font-size: clamp(14px, 1.1vw, 17px);
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.2;
+}
+.team-struct-badge {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.team-struct-role {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+}
+@media(max-width: 1100px) {
+  .team-structure-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media(max-width: 700px) {
+  .team-structure-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 460px) {
+  .team-structure-grid { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -873,9 +1342,29 @@ footer{animation:fadeIn .6s ease both}
     <span class="nav-logo-fallback" style="display:none">GLONE<span style="color:var(--accent)">TECH</span>®</span>
   </a>
   <div class="nav-links">
-    <a href="#services">Services</a>
+    <div class="nav-dropdown-wrapper">
+      <button class="nav-dropdown-btn" id="navWhatWeDoBtn" aria-expanded="false" aria-haspopup="true">
+        WHAT WE DO
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="#services-video-production" class="nav-dropdown-item">Video Production</a>
+        <a href="#services-brand-identity" class="nav-dropdown-item">Brand Identity Design</a>
+        <a href="#services-social-media" class="nav-dropdown-item">Social Media Management</a>
+        <a href="#services-photography" class="nav-dropdown-item">Photography</a>
+        <a href="#services-pr-communications" class="nav-dropdown-item">PR & Communications</a>
+        <a href="#services-digital-marketing" class="nav-dropdown-item">Digital Marketing</a>
+        <a href="#services-video-editing" class="nav-dropdown-item">Video Editing</a>
+        <a href="#services-graphics-design" class="nav-dropdown-item">Graphics Design</a>
+        <a href="#services-3d-animation" class="nav-dropdown-item">3D Modelling & Animation</a>
+        <a href="#services-motion-graphics" class="nav-dropdown-item">Motion Graphics</a>
+        <a href="#services-podcast-production" class="nav-dropdown-item">Podcast Production</a>
+        <a href="#services-content-marketing" class="nav-dropdown-item">Content Marketing</a>
+      </div>
+    </div>
     <a href="#work">Work</a>
     <a href="#testimonials">Results</a>
+    <a href="#team">Team</a>
     <a href="#process">Process</a>
     <a href="#contact" class="nav-cta">Get Started</a>
   </div>
@@ -888,9 +1377,28 @@ footer{animation:fadeIn .6s ease both}
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="#services" onclick="closeMob()">Services</a>
+  <div style="display:flex;flex-direction:column;align-items:center;width:100%;">
+    <button class="mobile-dropdown-btn" onclick="toggleMobServices()" style="display:inline-flex;align-items:center;gap:8px;">
+      WHAT WE DO <span style="font-size:1.2rem;transition:transform .2s;" id="mobArrow">▾</span>
+    </button>
+    <div class="mobile-dropdown-sub" id="mobServicesSub" style="display:none;width:100%;max-width:320px;margin:12px auto 0;text-align:center;">
+      <a href="#services-video-production" onclick="closeMob()">Video Production</a>
+      <a href="#services-brand-identity" onclick="closeMob()">Brand Identity Design</a>
+      <a href="#services-social-media" onclick="closeMob()">Social Media Management</a>
+      <a href="#services-photography" onclick="closeMob()">Photography</a>
+      <a href="#services-pr-communications" onclick="closeMob()">PR & Communications</a>
+      <a href="#services-digital-marketing" onclick="closeMob()">Digital Marketing</a>
+      <a href="#services-video-editing" onclick="closeMob()">Video Editing</a>
+      <a href="#services-graphics-design" onclick="closeMob()">Graphics Design</a>
+      <a href="#services-3d-animation" onclick="closeMob()">3D Modelling & Animation</a>
+      <a href="#services-motion-graphics" onclick="closeMob()">Motion Graphics</a>
+      <a href="#services-podcast-production" onclick="closeMob()">Podcast Production</a>
+      <a href="#services-content-marketing" onclick="closeMob()">Content Marketing</a>
+    </div>
+  </div>
   <a href="#work" onclick="closeMob()">Work</a>
   <a href="#testimonials" onclick="closeMob()">Results</a>
+  <a href="#team" onclick="closeMob()">Team</a>
   <a href="#process" onclick="closeMob()">Process</a>
   <a href="#contact" onclick="closeMob()">Get Started →</a>
 </div>
@@ -1463,61 +1971,181 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   </div>
 </section>
 
-<!-- ══════════════════════ PLATFORM (THE REALITY & PAIN POINTS) ══════════════════════ -->
-<section id="platform">
-  <div class="platform-inner reveal">
-    <p class="sec-label">Built For Scale</p>
-    <h2 class="platform-title">The Most Ruthlessly Effective Creative Platform For Rapidly Scaling Brands In Nigeria</h2>
-    <p class="platform-sub">There are a lot of so-called "agencies" roaming around the world wide web today. Most of these people are all talk, no results. Marketers lie, but work doesn't. And we have 100+ projects and 50+ satisfied clients to prove it.</p>
 
-    <!-- PAIN POINTS BENTO GRID (Raw, authentic, zero fake metrics) -->
-    <div class="pp-bento">
-      <!-- Left Featured: Visual Proof & The Brand Reality -->
-      <div class="pp-card pp-featured" style="background-image:url('Graphics/ALL-STARS @4x.webp')">
-        <div class="pp-featured-content">
-          <span class="pp-tag">Market Perception</span>
-          <h3 class="pp-title">Stop Losing Customers To Competitors Who Simply Look Better</h3>
-          <p class="pp-desc">In modern business, perception is reality. Inferior products regularly beat superior brands simply because their creative looks world-class, confident, and established. If your brand doesn't command authority in the first 3 seconds, prospects scroll right past you.</p>
-          <div class="pp-chips">
-            <span class="pp-chip">Commercial Stopping Power</span>
-            <span class="pp-chip">Cinema-Grade Polish</span>
-            <span class="pp-chip">Category Authority</span>
-          </div>
-        </div>
+<!-- ══════════════════════ DEPLOYMENT PARTNERS (Image 1) ══════════════════════ -->
+<section id="deployment-partners" class="deploy-partners-section">
+  <div class="deploy-container reveal">
+    <h2 class="deploy-title">Deployment <em>Partners</em></h2>
+    
+    <div class="deploy-logo-wall">
+      <!-- Row 1 -->
+      <div class="deploy-row">
+        <span class="d-logo font-google">Google</span>
+        <span class="d-logo"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>Meta</span>
+        <span class="d-logo font-gemini"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/></svg>Gemini</span>
+        <span class="d-logo font-figma"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 2h4a4 4 0 0 1 0 8H8V2zm0 8h4a4 4 0 0 1 0 8H8v-8zm0 8h4a4 4 0 1 1-4-4v4zm0-16H4a4 4 0 1 0 4 4V2z"/></svg>Figma</span>
+        <span class="d-logo font-canva">Canva</span>
+        <span class="d-logo font-serif-logo"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18c4-1 9-2 18-1-5-6-10-12-11-13-2 5-5 10-7 14z"/></svg>Midjourney</span>
+        <span class="d-logo font-adobe"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13.96 3H22v18l-8.04-18zM10.04 3H2v18l8.04-18zM12 11.23l4.02 8.77H13.6l-1.6-3.83h-3.9L12 11.23z"/></svg>Adobe</span>
+        <span class="d-logo font-sony">SONY</span>
       </div>
 
-      <!-- Right Column: Direct Pain Points -->
-      <div class="pp-col">
-        <!-- Pain Point 1 -->
-        <div class="pp-card">
-          <span class="pp-tag">The "Pretty Art" Trap</span>
-          <h4 class="pp-title">Designers Who Make Art, Not Sales</h4>
-          <p class="pp-desc">Most agencies design for design awards, not your cash flow. You get handed graphics that win polite compliments, but generate zero inquiries and zero revenue. Creative that doesn't convert is just expensive overhead.</p>
-          <div class="pp-solution"><span>The Glonetech Standard:</span> Every visual asset and 3D cut is built with direct consumer psychology to command attention and compel action.</div>
-        </div>
+      <!-- Row 2 -->
+      <div class="deploy-row">
+        <span class="d-logo"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/></svg>OpenAI</span>
+        <span class="d-logo font-chatgpt"><svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>ChatGPT</span>
+        <span class="d-logo font-freepik">FREEP!K</span>
+        <span class="d-logo font-wp"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1.8 14.8-2.6-7.3h1.8l1.7 5.3 1.6-5.3h1.8l-2.6 7.3z" fill="#000"/></svg>WordPress</span>
+        <span class="d-logo font-shutter">shutterstock</span>
+        <span class="d-logo font-outlook"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke="#000" stroke-width="2"/></svg>Outlook</span>
+        <span class="d-logo font-framer">▲ Framer</span>
+        <span class="d-logo font-gads"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 22h6l4-8 4 8h6L12 2z"/></svg>Google Ads</span>
+        <span class="d-logo font-css3">CSS3</span>
+      </div>
 
-        <!-- Pain Point 2 -->
-        <div class="pp-card">
-          <span class="pp-tag">The Middleman Problem</span>
-          <h4 class="pp-title">Account Managers & Freelancer Roulette</h4>
-          <p class="pp-desc">With traditional agencies, there is always an unnecessary middleman between you and the work. You never speak directly to the artists touching your files. Account managers miscommunicate your brief, slow down delivery, and pass your project to disconnected freelancers. Messages get lost, revisions drag on for weeks, and quality degrades.</p>
-          <div class="pp-solution"><span>The Glonetech Standard:</span> Direct Slack & WhatsApp access to dedicated in-house creatives actually producing your work. Zero middlemen.</div>
-        </div>
+      <!-- Row 3 -->
+      <div class="deploy-row">
+        <span class="d-logo font-envato">🍃 envato</span>
+        <span class="d-logo font-ms"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="9" height="9"/><rect x="13" y="2" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg>Microsoft</span>
+        <span class="d-logo font-python">🐍 python</span>
+        <span class="d-logo font-html5"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4z"/></svg>HTML5</span>
+        <span class="d-logo font-namecheap">namecheap</span>
+        <span class="d-logo font-hubspot">HubSpot</span>
+        <span class="d-logo font-lenovo">Lenovo</span>
+        <span class="d-logo font-semrush">SEMRUSH</span>
+        <span class="d-logo font-ahrefs">ahrefs</span>
+      </div>
 
-        <!-- Pain Point 3 -->
-        <div class="pp-card">
-          <span class="pp-tag">The Blame Game</span>
-          <h4 class="pp-title">Zero Accountability When Ad Spend Burns</h4>
-          <p class="pp-desc">When a campaign flops, traditional agencies point fingers: media buyers blame the creative, designers blame the offer, and nobody owns the outcome. You're left holding the bill.</p>
-          <div class="pp-solution"><span>The Glonetech Standard:</span> Radical ownership. Strategy, production, and execution live under one unified roof with a team personally invested in your win.</div>
-        </div>
+      <!-- Row 4 -->
+      <div class="deploy-row">
+        <span class="d-logo font-teams">Teams</span>
+        <span class="d-logo font-eskimi">ESKIMI</span>
+        <span class="d-logo font-veo">🔘 Veo 3</span>
+        <span class="d-logo font-capcut">✂ CapCut</span>
+        <span class="d-logo font-addynamo">AD:DYNAMO</span>
+        <span class="d-logo font-ps">Ps Adobe Photoshop</span>
+        <span class="d-logo font-dji">DJI</span>
+        <span class="d-logo font-apple"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.54c.64-.78 1.08-1.87.96-2.96-.93.04-2.07.62-2.73 1.4-.58.67-1.1 1.76-.96 2.83 1.04.08 2.09-.5 2.73-1.27z"/></svg>Apple</span>
+        <span class="d-logo font-yt">YouTube</span>
+      </div>
+
+      <!-- Row 5 -->
+      <div class="deploy-row">
+        <span class="d-logo font-modash">MODASH</span>
+        <span class="d-logo font-sprout">sproutsocial</span>
+        <span class="d-logo font-brand24">BRAND24</span>
+        <span class="d-logo font-uber">Ubersuggest</span>
+        <span class="d-logo font-java">☕ Java</span>
+        <span class="d-logo font-captions">captions</span>
+        <span class="d-logo font-story">Storyblocks</span>
+        <span class="d-logo font-x">𝕏</span>
       </div>
     </div>
-
-    <a href="#contact" class="btn-main">Click The Button Already →</a>
-    <p style="font-family:var(--font-head);font-size:12px;color:var(--muted);margin-top:1rem;font-style:italic">4.9 stars from 50+ verified clients</p>
   </div>
 </section>
+
+
+<!-- ══════════════════════ PLATFORM (THE REALITY & PAIN POINTS) ══════════════════════ -->
+
+<!-- ══════════════════════ STICKMAN SELLING ANIMATION (Image 5 Replacement) ══════════════════════ -->
+<section id="platform" class="stickman-sell-section">
+  <div class="stickman-sell-container reveal">
+    <p class="sec-label">The Ruthless Truth</p>
+    <h2 class="sec-title">Stop Playing Freelancer Roulette.<br>Meet Your In-House Creative Weapon.</h2>
+    <p class="sec-sub">Most agencies outsource your brand to random amateurs and hope you won't notice. Here's what happens when you switch to Glonetech.</p>
+
+    <!-- Interactive Stickman Theater -->
+    <div class="stickman-theater" id="stickmanTheater">
+      <div class="stickman-bubble-wrap">
+        <div class="stickman-bubble" id="stickmanBubble">
+          "I've hired 3 different freelancers... one vanished, one sent blurry slides, and my ad spend is burning!"
+        </div>
+      </div>
+
+      <div class="stickman-stage" id="stickmanStage">
+        <svg id="stickmanSvg" class="stickman-svg" viewBox="0 0 280 280" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Dynamic ambient shadow -->
+          <ellipse id="stickShadow" cx="140" cy="245" rx="55" ry="9" fill="rgba(255,255,255,0.08)" stroke="none" />
+          
+          <!-- Head -->
+          <circle id="stickHead" cx="140" cy="65" r="30" fill="#141414" stroke="#ffffff" stroke-width="4.5" />
+          <!-- Interactive Tracking Eyes with White Sockets -->
+          <ellipse cx="129" cy="62" rx="6.5" ry="7" fill="#ffffff" stroke="#141414" stroke-width="1.2" />
+          <circle id="stickEyeL" cx="129" cy="62" r="3.2" fill="#000000" stroke="none" />
+          <ellipse cx="151" cy="62" rx="6.5" ry="7" fill="#ffffff" stroke="#141414" stroke-width="1.2" />
+          <circle id="stickEyeR" cx="151" cy="62" r="3.2" fill="#000000" stroke="none" />
+          <!-- Sweat drop -->
+          <path id="stickSweat" d="M 175 48 C 175 42 169 35 169 35 C 169 35 163 42 163 48 C 163 52 166 55 169 55 C 172 55 175 52 175 48 Z" fill="#1a6fff" stroke="none" />
+          <!-- Mouth -->
+          <path id="stickMouth" d="M 128 78 Q 140 70 152 78" stroke="#ffffff" stroke-width="3.5" fill="none" />
+
+          <!-- Sunglasses (Glonetech/Scale mode) -->
+          <g id="stickShades" style="display:none; transition: all .3s ease;">
+            <polygon points="118,54 139,54 136,68 121,68" fill="#000" stroke="#1a6fff" stroke-width="2.5" />
+            <polygon points="141,54 162,54 159,68 144,68" fill="#000" stroke="#1a6fff" stroke-width="2.5" />
+            <line x1="137" y1="58" x2="143" y2="58" stroke="#1a6fff" stroke-width="2.5" />
+            <line x1="112" y1="57" x2="118" y2="57" stroke="#1a6fff" stroke-width="2" />
+            <line x1="162" y1="57" x2="168" y2="57" stroke="#1a6fff" stroke-width="2" />
+          </g>
+
+          <!-- Spine Body -->
+          <line id="stickSpine" x1="140" y1="95" x2="140" y2="175" stroke="#ffffff" stroke-width="5" />
+
+          <!-- Left Arm -->
+          <path id="stickArmL" d="M 140 115 L 95 130 L 75 105" stroke="#ffffff" stroke-width="4.5" />
+          <!-- Right Arm -->
+          <path id="stickArmR" d="M 140 115 L 185 130 L 205 105" stroke="#ffffff" stroke-width="4.5" />
+
+          <!-- Left Leg -->
+          <path id="stickLegL" d="M 140 175 L 115 210 L 105 245" stroke="#ffffff" stroke-width="4.5" />
+          <!-- Right Leg -->
+          <path id="stickLegR" d="M 140 175 L 165 210 L 175 245" stroke="#ffffff" stroke-width="4.5" />
+
+          <!-- Dynamic Props Layer -->
+          <g id="stickProps">
+            <!-- Stressed props: burning money -->
+            <g id="propStress">
+              <path d="M 60 90 L 80 80 L 75 100 Z" fill="#ff4444" stroke="#ff4444" opacity="0.8"/>
+              <text x="35" y="80" fill="#ff6666" font-size="11" font-family="monospace" stroke="none">-$5,000</text>
+            </g>
+            <!-- Glonetech weapon props: 4K cinema lens -->
+            <g id="propGlonetech" style="display:none">
+              <rect x="195" y="90" width="30" height="20" rx="3" fill="#1a1a1a" stroke="#1a6fff" stroke-width="2"/>
+              <circle cx="210" cy="100" r="6" fill="#1a6fff" stroke="none"/>
+              <polygon points="195,95 185,90 185,110 195,105" fill="#1a6fff" stroke="none"/>
+            </g>
+            <!-- Scaling rocket & trophy -->
+            <g id="propScale" style="display:none">
+              <path d="M 50 180 Q 70 120 120 70" stroke="#00ff88" stroke-width="3" stroke-dasharray="4 4" fill="none"/>
+              <text x="35" y="195" fill="#00ff88" font-size="12" font-family="var(--font-head)" font-weight="bold" stroke="none">▲ 300% ROI</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Story Timeline Interactive Step Buttons -->
+      <div class="stickman-controls">
+        <button class="stick-step-btn active" data-step="1" onclick="setStickState(1)">
+          <span class="step-num">01</span>
+          <span class="step-text">The Freelancer Roulette</span>
+        </button>
+        <button class="stick-step-btn" data-step="2" onclick="setStickState(2)">
+          <span class="step-num">02</span>
+          <span class="step-text">The Epiphany</span>
+        </button>
+        <button class="stick-step-btn" data-step="3" onclick="setStickState(3)">
+          <span class="step-num">03</span>
+          <span class="step-text">The Glonetech Arsenal</span>
+        </button>
+        <button class="stick-step-btn" data-step="4" onclick="setStickState(4)">
+          <span class="step-num">04</span>
+          <span class="step-text">Category Dominance</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ════════════════════ CLIENT RESULTS / ECHO SCROLL REVIEWS ════════════════════ -->
 <section class="echo-section" id="testimonials" aria-label="Client Results and Reviews">
@@ -1767,173 +2395,248 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
 </section>
 
 <!-- ════════════════════ SERVICES ════════════════════ -->
-<section id="services">
-  <p class="sec-label reveal">What We Do</p>
-  <h2 class="sec-title reveal">Everything Your Brand Needs<br>To Absolutely Dominate</h2>
-  <div class="svc-grid reveal">
-    <div class="svc-card">
-      <div class="svc-n">01</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+
+<!-- ══════════════════════ WHAT WE CAN DO FOR YOU (Image 3) ══════════════════════ -->
+<section id="services" class="premium-services-section">
+  <!-- Subtle ambient glow at top right -->
+  <div class="premium-services-ambient"></div>
+
+  <div class="premium-services-inner">
+    <p class="sec-label reveal">What We Do</p>
+    <h2 class="premium-services-title reveal">What We Can Do For You</h2>
+
+    <div class="premium-services-grid reveal">
+      <!-- Column 1 -->
+      <div class="premium-svc-col">
+        <a href="#contact" class="premium-svc-item" id="services-video-production" title="Video Production">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m22 8-6 4 6 4V8Z"/>
+            <rect width="14" height="12" x="2" y="6" rx="2"/>
+          </svg>
+          <span class="premium-svc-name">Video Production</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="premium-svc-item" id="services-brand-identity" title="Brand Identity Design">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
+            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
+            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2Z"/>
+          </svg>
+          <span class="premium-svc-name">Brand Identity Design</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="premium-svc-item" id="services-social-media" title="Social Media Management">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+            <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+          </svg>
+          <span class="premium-svc-name">Social Media Management</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
       </div>
-      <div class="svc-name">Video Production</div>
-      <p class="svc-desc">Brand films, social reels, TV commercials, event coverage, product demos, and testimonial videos that stop the scroll and compel action.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">02</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2Z"/></svg>
+
+      <!-- Column 2 -->
+      <div class="premium-svc-col">
+        <a href="#contact" class="premium-svc-item" id="services-photography" title="Photography">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+            <circle cx="12" cy="13" r="3"/>
+          </svg>
+          <span class="premium-svc-name">Photography</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="premium-svc-item" id="services-pr-communications" title="PR & Communications">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 11 18-5v12L3 14v-3z"/>
+            <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+          </svg>
+          <span class="premium-svc-name">PR & Communications</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="premium-svc-item" id="services-digital-marketing" title="Digital Marketing">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
+          </svg>
+          <span class="premium-svc-name">Digital Marketing</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
       </div>
-      <div class="svc-name">Brand Identity Design</div>
-      <p class="svc-desc">Logo, full visual identity systems, brand guidelines, and design assets that make you look world-class and consistent at every single touchpoint.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">03</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+
+      <!-- Column 3 -->
+      <div class="premium-svc-col">
+        <a href="#contact" class="premium-svc-item" id="services-video-editing" title="Video Editing">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="3"/>
+            <circle cx="6" cy="18" r="3"/>
+            <line x1="20" x2="8.12" y1="4" y2="15.88"/>
+            <line x1="14.47" x2="20" y1="14.48" y2="20"/>
+            <line x1="8.12" x2="12" y1="8.12" y2="12"/>
+          </svg>
+          <span class="premium-svc-name">Video Editing</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="premium-svc-item" id="services-graphics-design" title="Graphics Design">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19 7-7 3 3-7 7-3-3z"/>
+            <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+            <path d="m2 2 7.586 7.586"/>
+            <circle cx="11" cy="11" r="2"/>
+          </svg>
+          <span class="premium-svc-name">Graphics Design</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="premium-svc-item" id="services-3d-animation" title="3D Modelling & Animation">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21 16-9 5-9-5V8l9-5 9 5v8Z"/>
+            <path d="m3.27 6.96 8.73 4.91 8.73-4.91"/>
+            <path d="M12 22.08V12"/>
+          </svg>
+          <span class="premium-svc-name">3D Modelling & Animation</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
       </div>
-      <div class="svc-name">Social Media Management</div>
-      <p class="svc-desc">Strategy, content creation, community management, and growth across Instagram, TikTok, X, LinkedIn, YouTube, and Facebook.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">04</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+
+      <!-- Column 4 -->
+      <div class="premium-svc-col">
+        <a href="#contact" class="premium-svc-item" id="services-motion-graphics" title="Motion Graphics">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2"/>
+            <path d="M7 3v18"/>
+            <path d="M3 7.5h4"/>
+            <path d="M3 12h18"/>
+            <path d="M3 16.5h4"/>
+            <path d="M17 3v18"/>
+            <path d="M17 7.5h4"/>
+            <path d="M17 16.5h4"/>
+          </svg>
+          <span class="premium-svc-name">Motion Graphics</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="premium-svc-item" id="services-podcast-production" title="Podcast Production">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" x2="12" y1="19" y2="22"/>
+          </svg>
+          <span class="premium-svc-name">Podcast Production</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="premium-svc-item" id="services-content-marketing" title="Content Marketing">
+          <svg class="premium-svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+          <span class="premium-svc-name">Content Marketing</span>
+          <span class="premium-svc-arrow">→</span>
+        </a>
       </div>
-      <div class="svc-name">Photography</div>
-      <p class="svc-desc">Commercial photography, product shoots, event coverage, portrait sessions, and editorial imagery that tells your brand story beautifully.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">05</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-      </div>
-      <div class="svc-name">PR & Communications</div>
-      <p class="svc-desc">Strategic press releases, media relations, crisis communication, and brand messaging that builds lasting credibility and shapes public perception.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">06</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-      </div>
-      <div class="svc-name">Digital Marketing</div>
-      <p class="svc-desc">Performance campaigns, SEO content, paid ads, email marketing, and reporting dashboards built to maximize every single penny you invest in growth.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">07</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" x2="8.12" y1="4" y2="15.88"/><line x1="14.47" x2="20" y1="14.48" y2="20"/><line x1="8.12" x2="12" y1="8.12" y2="12"/></svg>
-      </div>
-      <div class="svc-name">Video Editing</div>
-      <p class="svc-desc">Professional post-production editing, color grading, sound design, motion titles, and multi-format exports optimized for every platform and screen.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">08</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-      </div>
-      <div class="svc-name">Graphics Design</div>
-      <p class="svc-desc">Social media graphics, flyers, banners, infographics, packaging, and print materials designed to stop the scroll and command attention.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">09</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5v8Z"/><path d="m3.27 6.96 8.73 4.91 8.73-4.91"/><path d="M12 22.08V12"/></svg>
-      </div>
-      <div class="svc-name">3D Modelling & Animation</div>
-      <p class="svc-desc">Photorealistic 3D product renders, architectural visualizations, character models, and full 3D animations that make your brand unforgettable.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">10</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/></svg>
-      </div>
-      <div class="svc-name">Motion Graphics</div>
-      <p class="svc-desc">Animated logos, kinetic typography, explainer animations, broadcast graphics, and motion design that brings your brand story to life on screen.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">11</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-      </div>
-      <div class="svc-name">Podcast Production</div>
-      <p class="svc-desc">End-to-end podcast setup, recording, editing, cover art, and multi-platform distribution, turning your voice into a powerful brand-building tool.</p>
-    </div>
-    <div class="svc-card">
-      <div class="svc-n">12</div>
-      <div class="svc-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-      </div>
-      <div class="svc-name">Content Marketing</div>
-      <p class="svc-desc">Expressing your brand through content re-strategized to drive qualified engagement and high-ticket customer acquisition.</p>
     </div>
   </div>
 </section>
 
+
 <!-- ════════════════════ TEAM ════════════════════ -->
-<section id="team">
-  <p class="sec-label reveal">The Humans</p>
-  <h2 class="sec-title reveal">Meet The Team<br>Behind Your Growth</h2>
-  <!--
-  DEVELOPER: TEAM PHOTOS
-  For each .team-photo div, add the team member's photo as inline style:
-  style="background-image:url('assets/team-firstname.jpg')"
-  Remove the .team-ph div once the image is in place.
-  Recommended: Portrait photos, consistent style/background
-  -->
-  <div class="team-grid reveal">
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="Team/Prince.jpg" alt="Joseph Prince" class="team-img team-img-default" loading="lazy" decoding="async">
-        <img src="Team/Princecool.jpg" alt="Joseph Prince" class="team-img team-img-hover" loading="lazy" decoding="async">
-      </div>
-      <div class="team-info">
-        <div class="team-name">Joseph Prince</div>
-        <div class="team-role">CEO</div>
-      </div>
-    </div>
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="Team/saka.jpg" alt="Saka Oladipupo" class="team-img team-img-default" loading="lazy" decoding="async">
-        <img src="Team/sakacool.jpg" alt="Saka Oladipupo" class="team-img team-img-hover" loading="lazy" decoding="async">
-      </div>
-      <div class="team-info">
-        <div class="team-name">Saka Oladipupo</div>
-        <div class="team-role">COO</div>
+
+<!-- ══════════════════════ OUR TEAM STRUCTURE (Image 2) ══════════════════════ -->
+<section id="team" class="team-section-structure">
+  <div class="team-header-structure reveal">
+    <h2 class="team-title-structure">Our Team <em>Structure</em></h2>
+    <p class="team-sub-structure">You might be thinking "loud", "untamed", "energetic".</p>
+  </div>
+
+  <div class="team-structure-grid reveal">
+    <!-- Member 1: Prince -->
+    <div class="team-struct-card">
+      <div class="team-struct-photo">
+        <img src="Team/Prince.jpg" alt="Joseph Prince" class="team-img-main" loading="lazy" decoding="async">
+        <img src="Team/Princecool.jpg" alt="Joseph Prince" class="team-img-grayscale" loading="lazy" decoding="async">
+        <div class="team-struct-overlay">
+          <div class="team-struct-name">
+            Joseph Prince
+            <svg class="team-struct-badge" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h4v4H3V3zm6 0h4v4H9V3zM3 9h4v4H3V9zm6 3h4v1H9v-1z" opacity="0.6"/></svg>
+          </div>
+          <div class="team-struct-role">Founder/CEO</div>
+        </div>
       </div>
     </div>
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="Team/smk.jpg" alt="Oni Ayomide" class="team-img team-img-default" loading="lazy" decoding="async">
-        <img src="Team/smkcool.jpg" alt="Oni Ayomide" class="team-img team-img-hover" loading="lazy" decoding="async">
-      </div>
-      <div class="team-info">
-        <div class="team-name">Oni Ayomide</div>
-        <div class="team-role">Head of Video</div>
-      </div>
-    </div>
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="Team/Precious.jpg" alt="Ohiomah Precious" class="team-img team-img-default" loading="lazy" decoding="async">
-        <img src="Team/preciouscool.jpg" alt="Ohiomah Precious" class="team-img team-img-hover" loading="lazy" decoding="async">
-      </div>
-      <div class="team-info">
-        <div class="team-name">Ohiomah Precious</div>
-        <div class="team-role">Lead Animator</div>
+
+    <!-- Member 2: Saka -->
+    <div class="team-struct-card">
+      <div class="team-struct-photo">
+        <img src="Team/saka.jpg" alt="Saka Oladipupo" class="team-img-main" loading="lazy" decoding="async">
+        <img src="Team/sakacool.jpg" alt="Saka Oladipupo" class="team-img-grayscale" loading="lazy" decoding="async">
+        <div class="team-struct-overlay">
+          <div class="team-struct-name">
+            Saka Oladipupo
+            <svg class="team-struct-badge" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h4v4H3V3zm6 0h4v4H9V3zM3 9h4v4H3V9zm6 3h4v1H9v-1z" opacity="0.6"/></svg>
+          </div>
+          <div class="team-struct-role">COO</div>
+        </div>
       </div>
     </div>
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="Team/Praise.jpg" alt="David Praise" class="team-img team-img-default" loading="lazy" decoding="async">
-        <img src="Team/praisecool.jpg" alt="David Praise" class="team-img team-img-hover" loading="lazy" decoding="async">
+
+    <!-- Member 3: Ayomide -->
+    <div class="team-struct-card">
+      <div class="team-struct-photo">
+        <img src="Team/smk.jpg" alt="Oni Ayomide" class="team-img-main" loading="lazy" decoding="async">
+        <img src="Team/smkcool.jpg" alt="Oni Ayomide" class="team-img-grayscale" loading="lazy" decoding="async">
+        <div class="team-struct-overlay">
+          <div class="team-struct-name">
+            Oni Ayomide
+            <svg class="team-struct-badge" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h4v4H3V3zm6 0h4v4H9V3zM3 9h4v4H3V9zm6 3h4v1H9v-1z" opacity="0.6"/></svg>
+          </div>
+          <div class="team-struct-role">Head of Video</div>
+        </div>
       </div>
-      <div class="team-info">
-        <div class="team-name">David Praise</div>
-        <div class="team-role">Lead Designer</div>
+    </div>
+
+    <!-- Member 4: Precious -->
+    <div class="team-struct-card">
+      <div class="team-struct-photo">
+        <img src="Team/Precious.jpg" alt="Ohiomah Precious" class="team-img-main" loading="lazy" decoding="async">
+        <img src="Team/preciouscool.jpg" alt="Ohiomah Precious" class="team-img-grayscale" loading="lazy" decoding="async">
+        <div class="team-struct-overlay">
+          <div class="team-struct-name">
+            Ohiomah Precious
+            <svg class="team-struct-badge" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h4v4H3V3zm6 0h4v4H9V3zM3 9h4v4H3V9zm6 3h4v1H9v-1z" opacity="0.6"/></svg>
+          </div>
+          <div class="team-struct-role">Lead Animator</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Member 5: Praise -->
+    <div class="team-struct-card">
+      <div class="team-struct-photo">
+        <img src="Team/Praise.jpg" alt="David Praise" class="team-img-main" loading="lazy" decoding="async">
+        <img src="Team/praisecool.jpg" alt="David Praise" class="team-img-grayscale" loading="lazy" decoding="async">
+        <div class="team-struct-overlay">
+          <div class="team-struct-name">
+            David Praise
+            <svg class="team-struct-badge" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h4v4H3V3zm6 0h4v4H9V3zM3 9h4v4H3V9zm6 3h4v1H9v-1z" opacity="0.6"/></svg>
+          </div>
+          <div class="team-struct-role">Lead Designer</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- ════════════════════ PROCESS ════════════════════ -->
 <section id="process">
@@ -1968,7 +2671,48 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   <div class="cta-inner reveal">
     <h2 class="cta-title">Ready To Make<br>Your Brand<br>Unstoppable?</h2>
     <p class="cta-sub">Skip the guesswork, the wasted spend, and the inconsistent content that goes nowhere. Let's build something that genuinely moves the needle.</p>
-    <a href="#contact" class="cta-btn">Hit The Button Now →</a>
+    <div class="cta-btn-stage">
+      <!-- PEEKABOO STICKMAN BEHIND BUTTON -->
+      <div class="cta-stickman-wrapper" id="ctaStickman">
+        <!-- Animated Speech Bubble telling you to 'click it' and 'nowww!!' -->
+        <div class="cta-stick-bubble" id="ctaStickBubble">
+          <span class="cta-stick-text" id="ctaStickText">click it</span>
+        </div>
+
+        <!-- Stickman SVG: body hidden behind button, head, shoulders & arms sticking out -->
+        <svg class="cta-stickman-svg" viewBox="0 0 200 130" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Body/Spine (slips down behind button) -->
+          <line x1="100" y1="58" x2="100" y2="128" stroke="#ffffff" stroke-width="4.5" />
+
+          <!-- Shoulders -->
+          <line x1="66" y1="74" x2="134" y2="74" stroke="#ffffff" stroke-width="4" />
+
+          <!-- Head -->
+          <circle cx="100" cy="35" r="23" fill="#0d1b3e" stroke="#ffffff" stroke-width="4" />
+
+          <!-- Expressive Urgent Eyes with Tracking Pupils -->
+          <ellipse cx="92" cy="32" rx="5" ry="5.5" fill="#ffffff" stroke="#111" stroke-width="1" />
+          <circle id="ctaStickEyeL" cx="92" cy="33" r="2.8" fill="#000000" stroke="none" />
+
+          <ellipse cx="108" cy="32" rx="5" ry="5.5" fill="#ffffff" stroke="#111" stroke-width="1" />
+          <circle id="ctaStickEyeR" cx="108" cy="33" r="2.8" fill="#000000" stroke="none" />
+
+          <!-- Shouting Excited Mouth -->
+          <path id="ctaStickMouth" d="M 92 44 Q 100 52 108 44 Q 100 47 92 44 Z" fill="#ffffff" stroke="#ffffff" stroke-width="1" />
+
+          <!-- Left Arm reaching over the button edge -->
+          <path id="ctaStickArmL" d="M 66 74 L 46 60 L 52 98" stroke="#ffffff" stroke-width="4" />
+          <circle cx="52" cy="98" r="4" fill="#ffffff" stroke="none" />
+
+          <!-- Right Arm pointing urgently right at the button! -->
+          <path id="ctaStickArmR" d="M 134 74 L 154 58 L 146 96" stroke="#ffffff" stroke-width="4" />
+          <circle cx="146" cy="96" r="4" fill="#ffffff" stroke="none" />
+          <line x1="146" y1="96" x2="144" y2="108" stroke="#ffffff" stroke-width="3.5" />
+        </svg>
+      </div>
+
+      <a href="#contact" class="cta-btn">Hit The Button Now →</a>
+    </div>
     <div class="cta-stars-wrap">
       <span class="stars">★★★★★</span>
       <span>4.9 stars from 50+ verified clients</span>
@@ -2387,6 +3131,261 @@ window.addEventListener("load", function () {
   // Initial render
   renderEchoScroll();
 })();
+</script>
+<script>
+
+/* ── MOBILE SERVICES DROPDOWN TOGGLE ── */
+function toggleMobServices() {
+  const sub = document.getElementById('mobServicesSub');
+  const arr = document.getElementById('mobArrow');
+  if (sub) {
+    const isClosed = sub.style.display === 'none' || !sub.style.display;
+    sub.style.display = isClosed ? 'flex' : 'none';
+    if (arr) arr.style.transform = isClosed ? 'rotate(180deg)' : 'rotate(0deg)';
+  }
+}
+
+/* ── STICKMAN INTERACTIVE SELLING ENGINE ── */
+(function() {
+  const bubble = document.getElementById('stickmanBubble');
+  const svg = document.getElementById('stickmanSvg');
+  const armL = document.getElementById('stickArmL');
+  const armR = document.getElementById('stickArmR');
+  const mouth = document.getElementById('stickMouth');
+  const sweat = document.getElementById('stickSweat');
+  const shades = document.getElementById('stickShades');
+  const propStress = document.getElementById('propStress');
+  const propGlonetech = document.getElementById('propGlonetech');
+  const propScale = document.getElementById('propScale');
+  const buttons = document.querySelectorAll('.stick-step-btn');
+
+  const states = {
+    1: {
+      bubble: '"I\'ve hired 3 different freelancers... one vanished, one sent blurry slides, and my ad spend is burning!"',
+      mouth: "M 128 78 Q 140 70 152 78", // frown
+      armL: "M 140 115 L 95 130 L 75 105", // hands clutching head
+      armR: "M 140 115 L 185 130 L 205 105",
+      sweat: true,
+      shades: false,
+      propStress: true,
+      propGlonetech: false,
+      propScale: false
+    },
+    2: {
+      bubble: '"Wait... What if I had ONE unified creative powerhouse? Video, 3D, branding, and ads under one roof?!"',
+      mouth: "M 130 75 Q 140 76 150 74", // curious neutral
+      armL: "M 140 115 L 110 135 L 130 90", // hand on chin thinking
+      armR: "M 140 115 L 175 135 L 195 150",
+      sweat: false,
+      shades: false,
+      propStress: false,
+      propGlonetech: false,
+      propScale: false
+    },
+    3: {
+      bubble: '"Entered Glonetech Solutions. Direct WhatsApp access to senior creators. Zero middlemen. 48-hour turnarounds!"',
+      mouth: "M 128 72 Q 140 82 152 72", // confident smile
+      armL: "M 140 115 L 100 100 L 90 70", // flex arm
+      armR: "M 140 115 L 180 120 L 205 95", // holding camera
+      sweat: false,
+      shades: true,
+      propStress: false,
+      propGlonetech: true,
+      propScale: false
+    },
+    4: {
+      bubble: '"BOOM! High-retention creative that converts. 3.4x average reach lift. 50+ clients scaled. Now we\'re dominating!"',
+      mouth: "M 126 70 Q 140 86 154 70", // big wide grin
+      armL: "M 140 115 L 90 85 L 75 60", // victory thumbs up
+      armR: "M 140 115 L 190 85 L 205 60", // victory thumbs up
+      sweat: false,
+      shades: true,
+      propStress: false,
+      propGlonetech: true,
+      propScale: true
+    }
+  };
+
+  window.setStickState = function(step) {
+    const s = states[step];
+    if (!s) return;
+
+    if (bubble) bubble.textContent = s.bubble;
+    if (mouth) mouth.setAttribute('d', s.mouth);
+    if (armL) armL.setAttribute('d', s.armL);
+    if (armR) armR.setAttribute('d', s.armR);
+    if (sweat) sweat.style.display = s.sweat ? 'block' : 'none';
+    if (shades) shades.style.display = s.shades ? 'block' : 'none';
+    if (propStress) propStress.style.display = s.propStress ? 'block' : 'none';
+    if (propGlonetech) propGlonetech.style.display = s.propGlonetech ? 'block' : 'none';
+    if (propScale) propScale.style.display = s.propScale ? 'block' : 'none';
+
+    buttons.forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.step) === step);
+    });
+  };
+
+  // Hover reactivity on stickman
+  if (svg) {
+    svg.addEventListener('mouseenter', () => {
+      if (bubble) {
+        bubble.textContent = '"Want to dominate your market? Click through steps 01 to 04 above to see how we do it!"';
+        bubble.style.transform = 'scale(1.04)';
+      }
+      if (armL && armR) {
+        armL.setAttribute('d', "M 140 115 L 95 80 L 80 50"); // wave left
+        armR.setAttribute('d', "M 140 115 L 185 95 L 205 70"); // wave right
+      }
+    });
+
+    svg.addEventListener('mouseleave', () => {
+      if (bubble) bubble.style.transform = 'scale(1)';
+      const activeBtn = document.querySelector('.stick-step-btn.active');
+      const step = activeBtn ? parseInt(activeBtn.dataset.step) : 1;
+      setStickState(step);
+    });
+  }
+
+  // Auto-scroll story progression
+  const platformSec = document.getElementById('platform');
+  if (platformSec && 'IntersectionObserver' in window) {
+    let lastProgress = -1;
+    window.addEventListener('scroll', () => {
+      const rect = platformSec.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      if (rect.top <= windowH && rect.bottom >= 0) {
+        const total = rect.height + windowH;
+        const current = windowH - rect.top;
+        const progress = Math.min(1, Math.max(0, current / (total || 1)));
+        
+        let step = 1;
+        if (progress > 0.72) step = 4;
+        else if (progress > 0.48) step = 3;
+        else if (progress > 0.25) step = 2;
+
+        if (step !== lastProgress) {
+          lastProgress = step;
+          setStickState(step);
+        }
+      }
+    }, { passive: true });
+  }
+
+  // ── MOUSE POINTER EYE TRACKING FOR BOB (#platform) ──
+  const eyeL = document.getElementById('stickEyeL');
+  const eyeR = document.getElementById('stickEyeR');
+  if (eyeL && eyeR && svg) {
+    const baseL = { x: 129, y: 62 };
+    const baseR = { x: 151, y: 62 };
+    const maxEyeRadius = 3.6;
+
+    let isSectionActive = true;
+    if ('IntersectionObserver' in window && platformSec) {
+      const eyeObs = new IntersectionObserver((entries) => {
+        isSectionActive = entries[0].isIntersecting;
+      }, { threshold: 0.05 });
+      eyeObs.observe(platformSec);
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isSectionActive) return;
+      const rect = svg.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+
+      const scaleX = 280 / rect.width;
+      const scaleY = 280 / rect.height;
+      const mouseSvgX = (e.clientX - rect.left) * scaleX;
+      const mouseSvgY = (e.clientY - rect.top) * scaleY;
+
+      // Left eye offset
+      const dxL = mouseSvgX - baseL.x;
+      const dyL = mouseSvgY - baseL.y;
+      const distL = Math.hypot(dxL, dyL);
+      const angleL = Math.atan2(dyL, dxL);
+      const rL = Math.min(maxEyeRadius, distL * 0.04);
+      eyeL.setAttribute('cx', (baseL.x + Math.cos(angleL) * rL).toFixed(2));
+      eyeL.setAttribute('cy', (baseL.y + Math.sin(angleL) * rL).toFixed(2));
+
+      // Right eye offset
+      const dxR = mouseSvgX - baseR.x;
+      const dyR = mouseSvgY - baseR.y;
+      const distR = Math.hypot(dxR, dyR);
+      const angleR = Math.atan2(dyR, dxR);
+      const rR = Math.min(maxEyeRadius, distR * 0.04);
+      eyeR.setAttribute('cx', (baseR.x + Math.cos(angleR) * rR).toFixed(2));
+      eyeR.setAttribute('cy', (baseR.y + Math.sin(angleR) * rR).toFixed(2));
+    }, { passive: true });
+  }
+})();
+
+/* ── CTA PEEKABOO STICKMAN SPEECH LOOP & EYE TRACKING ── */
+(function() {
+  const bubble = document.getElementById('ctaStickBubble');
+  const textEl = document.getElementById('ctaStickText');
+  const mouth = document.getElementById('ctaStickMouth');
+  const eyeL = document.getElementById('ctaStickEyeL');
+  const eyeR = document.getElementById('ctaStickEyeR');
+  const ctaSec = document.getElementById('cta');
+  const ctaStage = document.querySelector('.cta-btn-stage');
+
+  if (!bubble || !textEl) return;
+
+  // Seamless speech loop: 'click it' <-> 'nowww!!'
+  const dialogue = [
+    { text: 'click it', isNow: false, mouthD: 'M 92 44 Q 100 50 108 44 Q 100 46 92 44 Z' },
+    { text: 'nowww!!', isNow: true, mouthD: 'M 90 42 Q 100 56 110 42 Q 100 48 90 42 Z' }
+  ];
+
+  let dialIdx = 0;
+  setInterval(() => {
+    dialIdx = (dialIdx + 1) % dialogue.length;
+    const cur = dialogue[dialIdx];
+    
+    bubble.style.transform = 'translateX(-50%) scale(0.85)';
+    setTimeout(() => {
+      textEl.textContent = cur.text;
+      bubble.classList.toggle('is-now', cur.isNow);
+      bubble.style.transform = cur.isNow 
+        ? 'translateX(-50%) scale(1.15) rotate(-3deg)' 
+        : 'translateX(-50%) scale(1) rotate(0deg)';
+      if (mouth) mouth.setAttribute('d', cur.mouthD);
+    }, 120);
+  }, 1300);
+
+  // Eye tracking for CTA stickman
+  if (eyeL && eyeR && ctaSec) {
+    const baseL = { x: 92, y: 33 };
+    const baseR = { x: 108, y: 33 };
+    const maxRadius = 2.4;
+
+    let isCtaActive = true;
+    if ('IntersectionObserver' in window) {
+      const ctaObs = new IntersectionObserver((entries) => {
+        isCtaActive = entries[0].isIntersecting;
+      }, { threshold: 0.1 });
+      ctaObs.observe(ctaSec);
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isCtaActive) return;
+      const rect = ctaStage ? ctaStage.getBoundingClientRect() : ctaSec.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + 20;
+
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
+      const dist = Math.hypot(dx, dy);
+      const angle = Math.atan2(dy, dx);
+      const r = Math.min(maxRadius, dist * 0.035);
+
+      eyeL.setAttribute('cx', (baseL.x + Math.cos(angle) * r).toFixed(2));
+      eyeL.setAttribute('cy', (baseL.y + Math.sin(angle) * r).toFixed(2));
+      eyeR.setAttribute('cx', (baseR.x + Math.cos(angle) * r).toFixed(2));
+      eyeR.setAttribute('cy', (baseR.y + Math.sin(angle) * r).toFixed(2));
+    }, { passive: true });
+  }
+})();
+
 </script>
 </body>
 </html>
