@@ -636,6 +636,150 @@ nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px 
 .cta-stick-bubble.is-now{background:#ff2a44;color:#ffffff;box-shadow:0 0 25px rgba(255,42,68,.75)}
 .cta-stick-bubble.is-now::after{border-top-color:#ff2a44}
 
+/* ════════════════════ REUSABLE CTA STICKMEN ACROSS SITE ════════════════════ */
+.stickman-stage-wrap {
+  position: relative;
+  display: inline-block;
+  margin: 50px auto 1.5rem;
+}
+.stickman-stage-wrap .btn-main {
+  position: relative;
+  z-index: 5;
+  margin: 0;
+}
+.stickman-stage-wrap:hover .stickman-actor {
+  transform: translateY(-8px) scale(1.06);
+}
+.stickman-actor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.stickman-bubble-tag {
+  position: absolute;
+  background: #ffffff;
+  color: #0a0a0a;
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: all .22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+}
+.stickman-bubble-tag::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ffffff;
+  transition: border-top-color .2s ease;
+}
+.stickman-bubble-tag.alt-state {
+  background: #ff2a44;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 42, 68, 0.65);
+}
+.stickman-bubble-tag.alt-state::after {
+  border-top-color: #ff2a44;
+}
+
+/* ── Hero Stickman ── */
+.hero-form-stage {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto 1.2rem;
+}
+.hero-form-stage .hero-form {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 0;
+}
+.hero-stickman-wrap {
+  position: absolute;
+  bottom: calc(100% - 15px);
+  right: 25px;
+  width: 100px;
+  height: 80px;
+  pointer-events: none;
+  z-index: 6;
+  animation: heroStickBob 2.8s ease-in-out infinite;
+}
+@keyframes heroStickBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ── Letter Stickman ── */
+.letter-stickman-wrap {
+  position: absolute;
+  bottom: calc(100% - 20px);
+  left: 20px;
+  width: 130px;
+  height: 95px;
+  pointer-events: none;
+  z-index: 2;
+  animation: letterStickBob 2.7s ease-in-out infinite;
+}
+@keyframes letterStickBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ── Work Stickman ── */
+.work-stickman-wrap {
+  position: absolute;
+  bottom: calc(100% - 22px);
+  right: 20px;
+  width: 130px;
+  height: 95px;
+  pointer-events: none;
+  z-index: 2;
+  animation: workStickBob 2.5s ease-in-out infinite;
+}
+@keyframes workStickBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ── Form Submit Stickman ── */
+.form-submit-stage {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+}
+.form-submit-stage .f-submit {
+  position: relative;
+  z-index: 5;
+}
+.form-stickman-wrap {
+  position: absolute;
+  bottom: calc(100% - 16px);
+  right: 25px;
+  width: 120px;
+  height: 90px;
+  pointer-events: none;
+  z-index: 2;
+  animation: formStickBob 2.9s ease-in-out infinite;
+}
+@keyframes formStickBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.form-submit-stage:hover .form-stickman-wrap {
+  transform: translateY(-8px) scale(1.08);
+}
+
 .cta-btn{position:relative;z-index:5;display:inline-block;background:var(--accent);color:#fff;padding:22px 52px;border-radius:6px;font-family:var(--font-head);font-size:18px;font-weight:900;letter-spacing:.5px;transition:transform .15s,box-shadow .15s}
 .cta-btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.35)}
 .cta-stars-wrap{font-family:var(--font-head);font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;gap:8px}
@@ -1442,9 +1586,41 @@ footer{animation:fadeIn .6s ease both}
     <p class="hero-sub">
       Growing a brand is hard. We make it a whole lot easier, more predictable, less stressful and a whole lot more profitable.
     </p>
-    <div class="hero-form">
-      <input type="email" id="heroEmail" placeholder="Enter your email and let's talk…" autocomplete="email">
-      <button onclick="heroGo()">Let's Go →</button>
+    <div class="hero-form-stage">
+      <!-- HERO CO-PILOT STICKMAN SITTING ON BUTTON -->
+      <div class="hero-stickman-wrap stickman-actor" id="heroStickman">
+        <div class="stickman-bubble-tag" id="heroStickBubble" style="top:-32px; left:50%; transform:translateX(-50%);">
+          <span id="heroStickText">Type Email!</span>
+        </div>
+        <svg class="hero-stickman-svg" viewBox="0 0 100 80" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));">
+          <!-- Torso -->
+          <line x1="50" y1="36" x2="50" y2="60" stroke="#ffffff" stroke-width="3.5" />
+          <!-- Head -->
+          <circle cx="50" cy="20" r="14" fill="#0d1b3e" stroke="#ffffff" stroke-width="3.5" />
+          <!-- Tracking Eyes -->
+          <ellipse cx="46" cy="18" rx="3.5" ry="4" fill="#ffffff" stroke="#111" stroke-width="0.8" />
+          <circle id="heroStickEyeL" cx="46" cy="19" r="1.8" fill="#000000" stroke="none" />
+          <ellipse cx="54" cy="18" rx="3.5" ry="4" fill="#ffffff" stroke="#111" stroke-width="0.8" />
+          <circle id="heroStickEyeR" cx="54" cy="19" r="1.8" fill="#000000" stroke="none" />
+          <!-- Cheerful Smile -->
+          <path d="M 45 25 Q 50 29 55 25" stroke="#ffffff" stroke-width="2.5" fill="none" />
+          <!-- Left Arm resting on button edge -->
+          <path d="M 50 40 L 32 46 L 28 62" stroke="#ffffff" stroke-width="3" />
+          <circle cx="28" cy="62" r="3" fill="#ffffff" stroke="none" />
+          <!-- Right Arm enthusiastically pointing into button -->
+          <path d="M 50 40 L 68 45 L 75 62" stroke="#ffffff" stroke-width="3" />
+          <circle cx="75" cy="62" r="3" fill="#ffffff" stroke="none" />
+          <line x1="75" y1="62" x2="78" y2="70" stroke="#ffffff" stroke-width="2.5" />
+          <!-- Dangling Legs over the button border -->
+          <path d="M 50 60 L 42 74 L 40 82" stroke="#ffffff" stroke-width="3" />
+          <path d="M 50 60 L 58 74 L 60 82" stroke="#ffffff" stroke-width="3" />
+        </svg>
+      </div>
+
+      <div class="hero-form">
+        <input type="email" id="heroEmail" placeholder="Enter your email and let's talk…" autocomplete="email">
+        <button onclick="heroGo()">Let's Go →</button>
+      </div>
     </div>
     <p class="hero-disclaimer">*Are you ready to scale?</p>
     <div class="hero-stars-row">
@@ -1530,7 +1706,39 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
       <p class="big">And we want to do exactly that for you.</p>
       <p>But first, <br/>you need to choose your path below…</p>
     </div>
-    <a href="#contact" class="btn-main">Book My Free Strategy Call →</a>
+    <div class="stickman-stage-wrap">
+      <!-- LETTER DEAL-MAKER STICKMAN -->
+      <div class="letter-stickman-wrap stickman-actor" id="letterStickman">
+        <div class="stickman-bubble-tag" id="letterStickBubble" style="top:-34px; left:50%; transform:translateX(-50%);">
+          <span id="letterStickText">100% Free!</span>
+        </div>
+        <svg class="letter-stickman-svg" viewBox="0 0 130 95" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.45));">
+          <!-- Torso behind button -->
+          <line x1="65" y1="48" x2="65" y2="95" stroke="#ffffff" stroke-width="4" />
+          <!-- Shoulders -->
+          <line x1="40" y1="60" x2="90" y2="60" stroke="#ffffff" stroke-width="3.5" />
+          <!-- Head -->
+          <circle cx="65" cy="28" r="18" fill="#111111" stroke="#ffffff" stroke-width="3.5" />
+          <!-- Tracking Eyes -->
+          <ellipse cx="60" cy="26" rx="4" ry="4.5" fill="#ffffff" stroke="#111" stroke-width="0.8" />
+          <circle id="letterStickEyeL" cx="60" cy="27" r="2.2" fill="#000000" stroke="none" />
+          <ellipse cx="70" cy="26" rx="4" ry="4.5" fill="#ffffff" stroke="#111" stroke-width="0.8" />
+          <circle id="letterStickEyeR" cx="70" cy="27" r="2.2" fill="#000000" stroke="none" />
+          <!-- Warm Confident Smile -->
+          <path d="M 59 34 Q 65 39 71 34" stroke="#ffffff" stroke-width="2.5" fill="none" />
+          <!-- Left Arm waving free contract / golden handshake -->
+          <path d="M 40 60 L 22 42 L 15 28" stroke="#ffffff" stroke-width="3.5" />
+          <circle cx="15" cy="28" r="3.5" fill="#ffffff" stroke="none" />
+          <!-- Star badge in left hand -->
+          <polygon points="15,16 18,23 25,23 19,27 21,34 15,30 9,34 11,27 5,23 12,23" fill="#ffdd00" stroke="#ffdd00" stroke-width="1" />
+          <!-- Right Arm resting casually on button rim -->
+          <path d="M 90 60 L 105 72 L 115 88" stroke="#ffffff" stroke-width="3.5" />
+          <circle cx="115" cy="88" r="3.5" fill="#ffffff" stroke="none" />
+        </svg>
+      </div>
+
+      <a href="#contact" class="btn-main">Book My Free Strategy Call →</a>
+    </div>
   </div>
 </section>
 
@@ -1967,7 +2175,39 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
   </div>
 
   <div style="text-align:center">
-    <a href="#contact" class="btn-main">See If You Qualify →</a>
+    <div class="stickman-stage-wrap">
+      <!-- WORK SCOUT STICKMAN (INSPECTING WITH MAGNIFYING GLASS) -->
+      <div class="work-stickman-wrap stickman-actor" id="workStickman">
+        <div class="stickman-bubble-tag" id="workStickBubble" style="top:-34px; left:50%; transform:translateX(-50%);">
+          <span id="workStickText">Are you next?</span>
+        </div>
+        <svg class="work-stickman-svg" viewBox="0 0 130 95" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.45));">
+          <!-- Torso behind button -->
+          <line x1="65" y1="48" x2="65" y2="95" stroke="#ffffff" stroke-width="4" />
+          <!-- Shoulders -->
+          <line x1="40" y1="60" x2="90" y2="60" stroke="#ffffff" stroke-width="3.5" />
+          <!-- Head -->
+          <circle cx="65" cy="28" r="18" fill="#111111" stroke="#ffffff" stroke-width="3.5" />
+          <!-- Tracking Eyes -->
+          <ellipse cx="60" cy="26" rx="4" ry="4.5" fill="#ffffff" stroke="#111" stroke-width="0.8" />
+          <circle id="workStickEyeL" cx="60" cy="27" r="2.2" fill="#000000" stroke="none" />
+          <ellipse cx="70" cy="26" rx="4" ry="4.5" fill="#ffffff" stroke="#111" stroke-width="0.8" />
+          <circle id="workStickEyeR" cx="70" cy="27" r="2.2" fill="#000000" stroke="none" />
+          <!-- Curious mouth -->
+          <path d="M 60 35 Q 65 37 70 35" stroke="#ffffff" stroke-width="2.5" fill="none" />
+          <!-- Left Arm holding button edge -->
+          <path d="M 40 60 L 25 72 L 20 88" stroke="#ffffff" stroke-width="3.5" />
+          <circle cx="20" cy="88" r="3.5" fill="#ffffff" stroke="none" />
+          <!-- Right Arm holding magnifying glass looking down -->
+          <path d="M 90 60 L 108 45 L 112 30" stroke="#ffffff" stroke-width="3.5" />
+          <!-- Magnifying glass -->
+          <circle cx="112" cy="22" r="10" stroke="#1a6fff" stroke-width="2.5" fill="rgba(26,111,255,0.15)" />
+          <line x1="112" y1="32" x2="112" y2="40" stroke="#1a6fff" stroke-width="3" />
+        </svg>
+      </div>
+
+      <a href="#contact" class="btn-main">See If You Qualify →</a>
+    </div>
   </div>
 </section>
 
@@ -2794,9 +3034,41 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
           <label class="f-lbl">Tell Us About Your Brand</label>
           <textarea class="f-ta" placeholder="What does your business do? What are you trying to achieve? What's your timeline and rough budget?"></textarea>
         </div>
-        <button class="f-submit" onclick="sendForm(event)">
-          Book My Free Strategy Call →
-        </button>
+        <div class="form-submit-stage">
+          <!-- CONTACT SUBMIT CLOSER STICKMAN -->
+          <div class="form-stickman-wrap stickman-actor" id="contactStickman">
+            <div class="stickman-bubble-tag" id="contactStickBubble" style="top:-34px; left:50%; transform:translateX(-50%);">
+              <span id="contactStickText">Takes 30 secs!</span>
+            </div>
+            <svg class="contact-stickman-svg" viewBox="0 0 120 90" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.45));">
+              <!-- Torso behind button -->
+              <line x1="60" y1="46" x2="60" y2="90" stroke="#ffffff" stroke-width="4" />
+              <!-- Shoulders -->
+              <line x1="38" y1="58" x2="82" y2="58" stroke="#ffffff" stroke-width="3.5" />
+              <!-- Head -->
+              <circle cx="60" cy="26" r="17" fill="#141414" stroke="#ffffff" stroke-width="3.5" />
+              <!-- Tracking Eyes -->
+              <ellipse cx="55" cy="24" rx="4" ry="4.5" fill="#ffffff" stroke="#111" stroke-width="0.8" />
+              <circle id="contactStickEyeL" cx="55" cy="25" r="2" fill="#000000" stroke="none" />
+              <ellipse cx="65" cy="24" rx="4" ry="4.5" fill="#ffffff" stroke="#111" stroke-width="0.8" />
+              <circle id="contactStickEyeR" cx="65" cy="25" r="2" fill="#000000" stroke="none" />
+              <!-- Excited Open Mouth -->
+              <path d="M 54 32 Q 60 38 66 32" stroke="#ffffff" stroke-width="2.5" fill="none" />
+              <!-- Left Arm resting on button edge -->
+              <path d="M 38 58 L 26 70 L 22 84" stroke="#ffffff" stroke-width="3.5" />
+              <circle cx="22" cy="84" r="3" fill="#ffffff" stroke="none" />
+              <!-- Right Arm raising lightning bolt ⚡ -->
+              <path d="M 82 58 L 96 42 L 102 28" stroke="#ffffff" stroke-width="3.5" />
+              <circle cx="102" cy="28" r="3" fill="#ffffff" stroke="none" />
+              <!-- Lightning bolt -->
+              <polygon points="102,12 96,24 102,24 98,36 110,22 103,22" fill="#ffdd00" stroke="#ffdd00" stroke-width="1" />
+            </svg>
+          </div>
+
+          <button class="f-submit" onclick="sendForm(event)">
+            Book My Free Strategy Call →
+          </button>
+        </div>
         <p class="f-note">We respect your privacy. Your information is never sold or spammed.</p>
       </div>
     </div>
@@ -3384,6 +3656,92 @@ function toggleMobServices() {
       eyeR.setAttribute('cy', (baseR.y + Math.sin(angle) * r).toFixed(2));
     }, { passive: true });
   }
+})();
+
+/* ── MULTI-STICKMAN ENGINES (HERO, LETTER, WORK, CONTACT FORM) ── */
+(function initAllStickmen() {
+  function setupDialogueLoop(bubbleId, textId, dialogs, interval) {
+    const bubble = document.getElementById(bubbleId);
+    const textEl = document.getElementById(textId);
+    if (!bubble || !textEl) return;
+
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % dialogs.length;
+      const cur = dialogs[idx];
+      bubble.style.transform = 'translateX(-50%) scale(0.8)';
+      setTimeout(() => {
+        textEl.textContent = cur.text;
+        bubble.classList.toggle('alt-state', !!cur.isAlt);
+        bubble.style.transform = cur.isAlt 
+          ? 'translateX(-50%) scale(1.12) rotate(-2deg)' 
+          : 'translateX(-50%) scale(1) rotate(0deg)';
+      }, 120);
+    }, interval || 1400);
+  }
+
+  // 1. Hero Stickman Loop
+  setupDialogueLoop('heroStickBubble', 'heroStickText', [
+    { text: 'Type Email!', isAlt: false },
+    { text: 'Let\'s Launch! 🚀', isAlt: true }
+  ], 1400);
+
+  // 2. Letter Stickman Loop
+  setupDialogueLoop('letterStickBubble', 'letterStickText', [
+    { text: '100% Free!', isAlt: false },
+    { text: 'Zero Fluff! ✨', isAlt: true }
+  ], 1500);
+
+  // 3. Work Stickman Loop
+  setupDialogueLoop('workStickBubble', 'workStickText', [
+    { text: 'Are you next?', isAlt: false },
+    { text: 'Let\'s find out! 🔍', isAlt: true }
+  ], 1450);
+
+  // 4. Contact Form Stickman Loop
+  setupDialogueLoop('contactStickBubble', 'contactStickText', [
+    { text: 'Takes 30 secs!', isAlt: false },
+    { text: 'Send it! ⚡', isAlt: true }
+  ], 1350);
+
+  // Universal Eye Tracker for SVG stickmen
+  function setupEyeTracker(eyeLId, eyeRId, baseL, baseR, maxR, containerId) {
+    const eyeL = document.getElementById(eyeLId);
+    const eyeR = document.getElementById(eyeRId);
+    const container = document.getElementById(containerId) || (eyeL ? eyeL.closest('section, .hero-form-stage, .stickman-stage-wrap, .form-submit-stage') : null);
+    if (!eyeL || !eyeR || !container) return;
+
+    let isActive = true;
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        isActive = entries[0].isIntersecting;
+      }, { threshold: 0.05 });
+      obs.observe(container);
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isActive) return;
+      const rect = eyeL.getBoundingClientRect();
+      const centerX = rect.left;
+      const centerY = rect.top;
+
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
+      const dist = Math.hypot(dx, dy);
+      const angle = Math.atan2(dy, dx);
+      const r = Math.min(maxR, dist * 0.035);
+
+      eyeL.setAttribute('cx', (baseL.x + Math.cos(angle) * r).toFixed(2));
+      eyeL.setAttribute('cy', (baseL.y + Math.sin(angle) * r).toFixed(2));
+      eyeR.setAttribute('cx', (baseR.x + Math.cos(angle) * r).toFixed(2));
+      eyeR.setAttribute('cy', (baseR.y + Math.sin(angle) * r).toFixed(2));
+    }, { passive: true });
+  }
+
+  setupEyeTracker('heroStickEyeL', 'heroStickEyeR', { x: 46, y: 19 }, { x: 54, y: 19 }, 1.8, 'hero');
+  setupEyeTracker('letterStickEyeL', 'letterStickEyeR', { x: 60, y: 27 }, { x: 70, y: 27 }, 2.2, 'letter');
+  setupEyeTracker('workStickEyeL', 'workStickEyeR', { x: 60, y: 27 }, { x: 70, y: 27 }, 2.2, 'work');
+  setupEyeTracker('contactStickEyeL', 'contactStickEyeR', { x: 55, y: 25 }, { x: 65, y: 25 }, 2.0, 'contact');
 })();
 
 </script>
