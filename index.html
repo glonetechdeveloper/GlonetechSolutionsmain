@@ -1125,87 +1125,112 @@ footer{animation:fadeIn .6s ease both}
   color: var(--muted) !important;
 }
 
-/* ════════════════════ DEPLOYMENT PARTNERS (Image 1) ════════════════════ */
+/* ════════════════════ DEPLOYMENT PARTNERS (Image 1 Carousel) ════════════════════ */
 .deploy-partners-section {
   background: #000000;
-  padding: 100px 40px;
+  padding: 100px 0;
   border-top: 1px solid var(--border);
   overflow: hidden;
 }
 .deploy-container {
   max-width: 1300px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 .deploy-title {
   font-family: var(--font-head);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
-  font-weight: 300;
-  letter-spacing: -1.5px;
-  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: var(--white);
   margin-bottom: 50px;
   text-align: left;
 }
 .deploy-title em {
   font-style: italic;
-  font-family: var(--font-body);
-  font-weight: 400;
-  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: 900;
+  color: var(--accent);
 }
-.deploy-logo-wall {
+.deploy-carousels-wrap {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
+  width: 100%;
+  overflow: hidden;
 }
-.deploy-row {
+.deploy-carousel-row {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.deploy-track-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
-  flex-wrap: wrap;
+  width: max-content;
+  animation: deployScrollLeft 32s linear infinite;
+  will-change: transform;
 }
-.d-logo {
+.deploy-track-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  animation: deployScrollRight 34s linear infinite;
+  will-change: transform;
+}
+.deploy-carousel-row:hover .deploy-track-left,
+.deploy-carousel-row:hover .deploy-track-right {
+  animation-play-state: paused;
+}
+@keyframes deployScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes deployScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.deploy-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-head);
-  font-size: clamp(14px, 1.4vw, 19px);
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.88);
-  letter-spacing: -0.3px;
-  transition: all .25s ease;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 10px 22px;
+  filter: grayscale(100%) opacity(0.65);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
+  flex-shrink: 0;
   cursor: default;
 }
-.d-logo:hover {
-  color: #ffffff;
+.deploy-badge:hover {
+  filter: grayscale(0%) opacity(1);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(26, 111, 255, 0.5);
   transform: translateY(-2px);
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
-.d-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
+.deploy-badge img {
+  height: 28px;
+  width: 28px;
+  object-fit: contain;
+  display: block;
 }
-.font-google { font-weight: 800; letter-spacing: -0.5px; }
-.font-gemini { font-weight: 700; }
-.font-figma { font-weight: 700; }
-.font-canva { font-family: 'Brush Script MT', cursive, sans-serif; font-size: 24px; font-weight: 400; }
-.font-adobe { font-weight: 800; letter-spacing: 1px; }
-.font-sony { font-family: serif; font-weight: 800; letter-spacing: 2px; }
-.font-chatgpt { font-weight: 700; }
-.font-freepik { font-weight: 900; letter-spacing: 1px; }
-.font-wp { font-weight: 800; }
-.font-shutter { font-weight: 600; letter-spacing: -0.5px; }
-.font-framer { font-weight: 800; }
-.font-python { font-weight: 700; }
-.font-hubspot { font-weight: 800; }
-.font-lenovo { font-weight: 800; letter-spacing: 1px; }
-.font-semrush { font-weight: 800; }
-.font-ahrefs { font-weight: 800; }
-.font-apple { font-weight: 600; }
-.font-dji { font-weight: 900; letter-spacing: 1px; }
-.font-brand24 { font-weight: 900; }
-.font-ubersuggest { font-weight: 700; }
+.deploy-badge span {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+}
 
 /* ════════════════════ STICKMAN SELLING ANIMATION (Image 5) ════════════════════ */
 .stickman-sell-section {
@@ -1353,11 +1378,12 @@ footer{animation:fadeIn .6s ease both}
 }
 .premium-services-title {
   font-family: var(--font-head);
-  font-size: clamp(2.5rem, 5.5vw, 4.4rem);
-  font-weight: 300;
-  letter-spacing: -1.5px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.05;
   color: #ffffff;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   text-align: left;
 }
 .premium-services-grid {
@@ -2280,6 +2306,7 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
       <img src="logos/CIMUN_-removebg-preview.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
       <img src="logos/Bloom.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
       <img src="logos/CIMUN2-removebg-preview.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CUPL-WHITE-PRIMARY.png" alt="CUPL" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
       <!-- Duplicate for seamless loop -->
       <img src="logos/pj.png" alt="Client Partner" loading="lazy" decoding="async" style="height:130px;opacity:.35;filter:grayscale(1) brightness(10)">
       <img src="logos/move.png" alt="Client Partner" loading="lazy" decoding="async" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
@@ -2295,6 +2322,7 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
       <img src="logos/CIMUN_-removebg-preview.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
       <img src="logos/Bloom.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
       <img src="logos/CIMUN2-removebg-preview.png" alt="Client Partner" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CUPL-WHITE-PRIMARY.png" alt="CUPL" loading="lazy" decoding="async" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
     </div>
   </div>
 </div>
@@ -2431,73 +2459,85 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
 </section>
 
 
-<!-- ══════════════════════ DEPLOYMENT PARTNERS (Image 1) ══════════════════════ -->
+<!-- ══════════════════════ DEPLOYMENT PARTNERS (Image 1 Carousel) ══════════════════════ -->
 <section id="deployment-partners" class="deploy-partners-section">
   <div class="deploy-container reveal">
     <h2 class="deploy-title">Deployment <em>Partners</em></h2>
-    
-    <div class="deploy-logo-wall">
-      <!-- Row 1 -->
-      <div class="deploy-row">
-        <span class="d-logo font-google">Google</span>
-        <span class="d-logo"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>Meta</span>
-        <span class="d-logo font-gemini"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/></svg>Gemini</span>
-        <span class="d-logo font-figma"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 2h4a4 4 0 0 1 0 8H8V2zm0 8h4a4 4 0 0 1 0 8H8v-8zm0 8h4a4 4 0 1 1-4-4v4zm0-16H4a4 4 0 1 0 4 4V2z"/></svg>Figma</span>
-        <span class="d-logo font-canva">Canva</span>
-        <span class="d-logo font-serif-logo"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18c4-1 9-2 18-1-5-6-10-12-11-13-2 5-5 10-7 14z"/></svg>Midjourney</span>
-        <span class="d-logo font-adobe"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13.96 3H22v18l-8.04-18zM10.04 3H2v18l8.04-18zM12 11.23l4.02 8.77H13.6l-1.6-3.83h-3.9L12 11.23z"/></svg>Adobe</span>
-        <span class="d-logo font-sony">SONY</span>
+  </div>
+  
+  <div class="deploy-carousels-wrap reveal">
+    <!-- Row 1: Left to Right (Creative Suite) -->
+    <div class="deploy-carousel-row">
+      <div class="deploy-track-left">
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-premiere-pro-96.png" alt="Premiere Pro" loading="lazy"><span>Premiere Pro</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-after-effects-96.png" alt="After Effects" loading="lazy"><span>After Effects</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-blender-96.png" alt="Blender 3D" loading="lazy"><span>Blender 3D</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-cinema-4d-96.png" alt="Cinema 4D" loading="lazy"><span>Cinema 4D</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-davinci-resolve-96.png" alt="DaVinci Resolve" loading="lazy"><span>DaVinci Resolve</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-photoshop-96.png" alt="Photoshop" loading="lazy"><span>Photoshop</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-illustrator-96.png" alt="Illustrator" loading="lazy"><span>Illustrator</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-lightroom-96.png" alt="Lightroom" loading="lazy"><span>Lightroom</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-meta-48.png" alt="Meta" loading="lazy"><span>Meta</span></div>
+        <!-- Duplicated for seamless infinite loop -->
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-premiere-pro-96.png" alt="Premiere Pro" loading="lazy"><span>Premiere Pro</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-after-effects-96.png" alt="After Effects" loading="lazy"><span>After Effects</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-blender-96.png" alt="Blender 3D" loading="lazy"><span>Blender 3D</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-cinema-4d-96.png" alt="Cinema 4D" loading="lazy"><span>Cinema 4D</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-davinci-resolve-96.png" alt="DaVinci Resolve" loading="lazy"><span>DaVinci Resolve</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-photoshop-96.png" alt="Photoshop" loading="lazy"><span>Photoshop</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-illustrator-96.png" alt="Illustrator" loading="lazy"><span>Illustrator</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-adobe-lightroom-96.png" alt="Lightroom" loading="lazy"><span>Lightroom</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-meta-48.png" alt="Meta" loading="lazy"><span>Meta</span></div>
       </div>
+    </div>
 
-      <!-- Row 2 -->
-      <div class="deploy-row">
-        <span class="d-logo"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/></svg>OpenAI</span>
-        <span class="d-logo font-chatgpt"><svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/></svg>ChatGPT</span>
-        <span class="d-logo font-freepik">FREEP!K</span>
-        <span class="d-logo font-wp"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1.8 14.8-2.6-7.3h1.8l1.7 5.3 1.6-5.3h1.8l-2.6 7.3z" fill="#000"/></svg>WordPress</span>
-        <span class="d-logo font-shutter">shutterstock</span>
-        <span class="d-logo font-outlook"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke="#000" stroke-width="2"/></svg>Outlook</span>
-        <span class="d-logo font-framer">▲ Framer</span>
-        <span class="d-logo font-gads"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 22h6l4-8 4 8h6L12 2z"/></svg>Google Ads</span>
-        <span class="d-logo font-css3">CSS3</span>
+    <!-- Row 2: Right to Left (Social & Ads) -->
+    <div class="deploy-carousel-row">
+      <div class="deploy-track-right">
+        <div class="deploy-badge"><img src="deployment/icons8-youtube-100.png" alt="YouTube" loading="lazy"><span>YouTube</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-instagram-96.png" alt="Instagram" loading="lazy"><span>Instagram</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-facebook-96.png" alt="Facebook" loading="lazy"><span>Facebook</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-google-ads-48.png" alt="Google Ads" loading="lazy"><span>Google Ads</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-whatsapp-96.png" alt="WhatsApp" loading="lazy"><span>WhatsApp</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-telegram-app-96.png" alt="Telegram" loading="lazy"><span>Telegram</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-pinterest-96.png" alt="Pinterest" loading="lazy"><span>Pinterest</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-google-mail-96.png" alt="Gmail" loading="lazy"><span>Gmail</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-google-drive-96.png" alt="Google Drive" loading="lazy"><span>Google Drive</span></div>
+        <!-- Duplicated for seamless infinite loop -->
+        <div class="deploy-badge"><img src="deployment/icons8-youtube-100.png" alt="YouTube" loading="lazy"><span>YouTube</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-instagram-96.png" alt="Instagram" loading="lazy"><span>Instagram</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-facebook-96.png" alt="Facebook" loading="lazy"><span>Facebook</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-google-ads-48.png" alt="Google Ads" loading="lazy"><span>Google Ads</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-whatsapp-96.png" alt="WhatsApp" loading="lazy"><span>WhatsApp</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-telegram-app-96.png" alt="Telegram" loading="lazy"><span>Telegram</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-pinterest-96.png" alt="Pinterest" loading="lazy"><span>Pinterest</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-google-mail-96.png" alt="Gmail" loading="lazy"><span>Gmail</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-google-drive-96.png" alt="Google Drive" loading="lazy"><span>Google Drive</span></div>
       </div>
+    </div>
 
-      <!-- Row 3 -->
-      <div class="deploy-row">
-        <span class="d-logo font-envato">🍃 envato</span>
-        <span class="d-logo font-ms"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="9" height="9"/><rect x="13" y="2" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg>Microsoft</span>
-        <span class="d-logo font-python">🐍 python</span>
-        <span class="d-logo font-html5"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4z"/></svg>HTML5</span>
-        <span class="d-logo font-namecheap">namecheap</span>
-        <span class="d-logo font-hubspot">HubSpot</span>
-        <span class="d-logo font-lenovo">Lenovo</span>
-        <span class="d-logo font-semrush">SEMRUSH</span>
-        <span class="d-logo font-ahrefs">ahrefs</span>
-      </div>
-
-      <!-- Row 4 -->
-      <div class="deploy-row">
-        <span class="d-logo font-teams">Teams</span>
-        <span class="d-logo font-eskimi">ESKIMI</span>
-        <span class="d-logo font-veo">🔘 Veo 3</span>
-        <span class="d-logo font-capcut">✂ CapCut</span>
-        <span class="d-logo font-addynamo">AD:DYNAMO</span>
-        <span class="d-logo font-ps">Ps Adobe Photoshop</span>
-        <span class="d-logo font-dji">DJI</span>
-        <span class="d-logo font-apple"><svg class="d-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.54c.64-.78 1.08-1.87.96-2.96-.93.04-2.07.62-2.73 1.4-.58.67-1.1 1.76-.96 2.83 1.04.08 2.09-.5 2.73-1.27z"/></svg>Apple</span>
-        <span class="d-logo font-yt">YouTube</span>
-      </div>
-
-      <!-- Row 5 -->
-      <div class="deploy-row">
-        <span class="d-logo font-modash">MODASH</span>
-        <span class="d-logo font-sprout">sproutsocial</span>
-        <span class="d-logo font-brand24">BRAND24</span>
-        <span class="d-logo font-uber">Ubersuggest</span>
-        <span class="d-logo font-java">☕ Java</span>
-        <span class="d-logo font-captions">captions</span>
-        <span class="d-logo font-story">Storyblocks</span>
-        <span class="d-logo font-x">𝕏</span>
+    <!-- Row 3: Left to Right (Development & Platforms) -->
+    <div class="deploy-carousel-row">
+      <div class="deploy-track-left">
+        <div class="deploy-badge"><img src="deployment/icons8-react-48.png" alt="React" loading="lazy"><span>React</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-python-96.png" alt="Python" loading="lazy"><span>Python</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-javascript-96.png" alt="JavaScript" loading="lazy"><span>JavaScript</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-html5-96.png" alt="HTML5" loading="lazy"><span>HTML5</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-css3-96.png" alt="CSS3" loading="lazy"><span>CSS3</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-github-50.png" alt="GitHub" loading="lazy"><span>GitHub</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-vercel-50.png" alt="Vercel" loading="lazy"><span>Vercel</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-visual-studio-50.png" alt="VS Code" loading="lazy"><span>Visual Studio</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-google-forms-96.png" alt="Google Forms" loading="lazy"><span>Google Forms</span></div>
+        <!-- Duplicated for seamless infinite loop -->
+        <div class="deploy-badge"><img src="deployment/icons8-react-48.png" alt="React" loading="lazy"><span>React</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-python-96.png" alt="Python" loading="lazy"><span>Python</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-javascript-96.png" alt="JavaScript" loading="lazy"><span>JavaScript</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-html5-96.png" alt="HTML5" loading="lazy"><span>HTML5</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-css3-96.png" alt="CSS3" loading="lazy"><span>CSS3</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-github-50.png" alt="GitHub" loading="lazy"><span>GitHub</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-vercel-50.png" alt="Vercel" loading="lazy"><span>Vercel</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-visual-studio-50.png" alt="VS Code" loading="lazy"><span>Visual Studio</span></div>
+        <div class="deploy-badge"><img src="deployment/icons8-google-forms-96.png" alt="Google Forms" loading="lazy"><span>Google Forms</span></div>
       </div>
     </div>
   </div>
@@ -2843,7 +2883,7 @@ Duplicate the entire inner div for a seamless infinite scroll loop.
       <p class="sec-label" style="text-align:left">Our Story</p>
       <h2 class="sec-title" style="text-align:left;font-size:clamp(1.8rem,3vw,3rem);margin-bottom:1.5rem">We Made The System For Making Brands Impossible To Ignore</h2>
       <p>Glonetech Solutions was built on one conviction: <strong>every great business deserves great creative.</strong> Too many incredible brands are losing to competitors who simply look and sound better.</p>
-      <p>We exist to close that gap. With <strong>1+ year of relentless execution</strong>, 50+ brands served, and 100+ projects delivered, we've built a reputation for work that doesn't just look good, it <em>actually works.</em></p>
+      <p>We exist to close that gap. With <strong>2+ years of relentless execution</strong>, 50+ brands served, and 100+ projects delivered, we've built a reputation for work that doesn't just look good, it <em>actually works.</em></p>
       <p>Our team of strategists, filmmakers, designers, and storytellers brings the same obsessive attention to craft to every single project, whether you're a startup launching your first brand or an established company ready to dominate your category.</p>
       <div class="about-stars">
         <span class="stars">★★★★★</span>
@@ -3453,16 +3493,69 @@ function openModal(src) { if (src) { player.src=src; modal.classList.add('open')
 modal.addEventListener('click', e => { if (e.target === modal) closeVid(); });
 document.addEventListener('keydown', e => { if (e.key==='Escape') closeVid(); });
 
-/* ── HERO FORM ── */
+/* ── HERO FORM ASYNC SUBMISSION (GOOGLE SHEETS) ── */
+const heroScriptURL = 'https://script.google.com/macros/s/AKfycbzJKbuIB6ta5KjJoGQkb8Zf91wbUzN7WU4nsH80HfH5k9lDpRMXExIHnzFzEJcb-vwT/exec';
+
 function heroGo() {
   const inp = document.getElementById('heroEmail');
-  if (!inp.value || !inp.value.includes('@')) { inp.style.outline='2px solid red'; return; }
-  inp.style.outline='';
-  inp.nextElementSibling.textContent='✓ You\'re In!';
-  inp.nextElementSibling.style.background='#3a9a3a';
-  setTimeout(() => { window.location.href='#contact'; }, 800);
+  if (!inp || !inp.value || !inp.value.includes('@')) {
+    if (inp) inp.style.outline = '2px solid red';
+    return;
+  }
+  inp.style.outline = '';
+  const emailVal = inp.value.trim();
+  const btn = inp.nextElementSibling;
+  const heroStickText = document.getElementById('heroStickText');
+
+  window.heroDialoguePaused = true;
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+  }
+  if (heroStickText) {
+    heroStickText.textContent = 'Launching! 🚀';
+  }
+
+  // Pre-fill the contact form email field
+  const contactEmail = document.querySelector('#contactForm input[name="email"]');
+  if (contactEmail) contactEmail.value = emailVal;
+
+  const fd = new FormData();
+  fd.append('email', emailVal);
+
+  fetch(heroScriptURL, { method: 'POST', body: fd })
+    .then(() => {
+      if (btn) {
+        btn.textContent = "✓ You're In!";
+        btn.style.background = '#3a9a3a';
+      }
+      if (heroStickText) heroStickText.textContent = "You're In! ⚡";
+      setTimeout(() => {
+        window.location.href = '#contact';
+        setTimeout(() => {
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = "Let's Go →";
+            btn.style.background = '';
+          }
+          window.heroDialoguePaused = false;
+        }, 1500);
+      }, 800);
+    })
+    .catch(err => {
+      console.error('Error submitting hero email:', err);
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "✓ You're In!";
+        btn.style.background = '#3a9a3a';
+      }
+      setTimeout(() => {
+        window.location.href = '#contact';
+        window.heroDialoguePaused = false;
+      }, 800);
+    });
 }
-document.getElementById('heroEmail').addEventListener('keydown', e => { if (e.key==='Enter') heroGo(); });
+document.getElementById('heroEmail').addEventListener('keydown', e => { if (e.key === 'Enter') heroGo(); });
 
 /* ── CONTACT FORM ASYNC SUBMISSION (GOOGLE SHEETS) ── */
 const scriptURL = 'https://script.google.com/macros/s/AKfycbzW6LCba1w6kmBpDpa0EK2EYOtPObc3mkrhcJ2kXD0-b6zThMVIR5yHtLNltQRUVGS3/exec';
@@ -3703,7 +3796,7 @@ function toggleMobServices() {
       propScale: false
     },
     3: {
-      bubble: '"Entered Glonetech Solutions. Direct WhatsApp access to senior creators. Zero middlemen. 48-hour turnarounds!"',
+      bubble: '"Entered Glonetech Solutions. Direct WhatsApp access to senior creators. Dedicated account managers. 48-hour turnarounds!"',
       mouth: "M 128 72 Q 140 82 152 72", // confident smile
       armL: "M 140 115 L 100 100 L 90 70", // flex arm
       armR: "M 140 115 L 180 120 L 205 95", // holding camera
@@ -3916,11 +4009,13 @@ function toggleMobServices() {
     let idx = 0;
     setInterval(() => {
       if (bubbleId === 'contactStickBubble' && window.contactDialoguePaused) return;
+      if (bubbleId === 'heroStickBubble' && window.heroDialoguePaused) return;
       idx = (idx + 1) % dialogs.length;
       const cur = dialogs[idx];
       bubble.style.transform = 'translateX(-50%) scale(0.8)';
       setTimeout(() => {
         if (bubbleId === 'contactStickBubble' && window.contactDialoguePaused) return;
+        if (bubbleId === 'heroStickBubble' && window.heroDialoguePaused) return;
         textEl.textContent = cur.text;
         bubble.classList.toggle('alt-state', !!cur.isAlt);
         bubble.style.transform = cur.isAlt 
@@ -3992,6 +4087,97 @@ function toggleMobServices() {
   setupEyeTracker('letterStickEyeL', 'letterStickEyeR', { x: 60, y: 27 }, { x: 70, y: 27 }, 2.2, 'letter');
   setupEyeTracker('workStickEyeL', 'workStickEyeR', { x: 60, y: 27 }, { x: 70, y: 27 }, 2.2, 'work');
   setupEyeTracker('contactStickEyeL', 'contactStickEyeR', { x: 55, y: 25 }, { x: 65, y: 25 }, 2.0, 'contact');
+})();
+
+/* ── INACTIVE TAB NEW MESSAGE ALERT (KINGKONG STYLE) ── */
+(function setupTabAlert() {
+  const originalTitle = document.title;
+  let faviconEl = document.querySelector("link[rel*='icon']");
+  if (!faviconEl) {
+    faviconEl = document.createElement('link');
+    faviconEl.rel = 'icon';
+    document.head.appendChild(faviconEl);
+  }
+  const originalFavicon = faviconEl.href || 'assets/logow2.png';
+  let badgedFavicon = '';
+  let titleTimer = null;
+
+  // Generate badged favicon on offscreen canvas
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.src = 'assets/logow2.png';
+  img.onload = function() {
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = 32;
+      canvas.height = 32;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      // Draw original icon
+      ctx.drawImage(img, 0, 0, 32, 32);
+
+      // Draw notification badge
+      const badgeX = 23;
+      const badgeY = 9;
+      const radius = 7.5;
+
+      ctx.beginPath();
+      ctx.arc(badgeX, badgeY, radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#ff1a1a';
+      ctx.fill();
+
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = '#ffffff';
+      ctx.stroke();
+
+      // Draw "1" text inside badge
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 9px Montserrat, Arial, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('1', badgeX, badgeY + 0.5);
+
+      badgedFavicon = canvas.toDataURL('image/png');
+    } catch (e) {}
+  };
+
+  function startTabAlert() {
+    if (badgedFavicon) {
+      faviconEl.href = badgedFavicon;
+    }
+    document.title = '(1) New Message';
+    clearInterval(titleTimer);
+    let state = false;
+    titleTimer = setInterval(function() {
+      state = !state;
+      document.title = state ? '(1) New Message' : originalTitle;
+    }, 1500);
+  }
+
+  function stopTabAlert() {
+    clearInterval(titleTimer);
+    document.title = originalTitle;
+    faviconEl.href = originalFavicon;
+  }
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      startTabAlert();
+    } else {
+      stopTabAlert();
+    }
+  });
+
+  window.addEventListener('blur', function() {
+    if (document.hidden) {
+      startTabAlert();
+    }
+  });
+
+  window.addEventListener('focus', function() {
+    stopTabAlert();
+  });
 })();
 
 </script>
