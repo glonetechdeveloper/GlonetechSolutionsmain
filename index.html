@@ -30,9 +30,97 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="preload" href="video/WEBSITE_1.webm" as="video" type="video/webm">
 
 <style>
+/* ════════════════════ PRELOADER ════════════════════ */
+#sitePreloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  z-index: 9999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s ease;
+  user-select: none;
+  overflow: hidden;
+}
+#sitePreloader.preloader-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.preloader-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+}
+.preloader-logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preloader-logo {
+  height: 60px;
+  width: auto;
+  filter: drop-shadow(0 0 30px rgba(26,111,255,0.45));
+  animation: preloaderPulse 2.2s ease-in-out infinite alternate;
+}
+@keyframes preloaderPulse {
+  0% { transform: scale(0.97); filter: drop-shadow(0 0 15px rgba(26,111,255,0.3)); }
+  100% { transform: scale(1.03); filter: drop-shadow(0 0 35px rgba(26,111,255,0.65)); }
+}
+.preloader-stickman-wrap {
+  width: 44px;
+  height: 44px;
+  margin-bottom: -10px;
+  animation: preloaderStickFloat 1.8s ease-in-out infinite alternate;
+}
+@keyframes preloaderStickFloat {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(-5px) rotate(2deg); }
+}
+.preloader-bar-track {
+  width: 220px;
+  max-width: 80vw;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 8px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+.preloader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1a6fff, #00d2ff);
+  border-radius: 99px;
+  transition: width 0.28s ease-out;
+  box-shadow: 0 0 14px rgba(26, 111, 255, 0.85);
+}
+.preloader-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.preloader-pct {
+  color: var(--accent);
+  font-weight: 800;
+  min-width: 34px;
+}
 :root {
   --black: #0a0a0a;
   --off-black: #111111;
@@ -1455,6 +1543,126 @@ footer{animation:fadeIn .6s ease both}
 </style>
 </head>
 <body>
+
+<!-- ════════════════════ SITE PRELOADER ════════════════════ -->
+<div id="sitePreloader" aria-label="Loading Glonetech Solutions">
+  <div class="preloader-brand">
+    <div class="preloader-stickman-wrap">
+      <svg width="44" height="44" viewBox="0 0 80 80" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="40" cy="18" r="9" stroke="#fff" fill="#141414"/>
+        <line x1="40" y1="27" x2="40" y2="48" stroke="#fff"/>
+        <path d="M 40 34 L 27 26 L 22 18" stroke="#fff"/>
+        <path d="M 40 34 L 54 28 L 62 20" stroke="#fff"/>
+        <polygon points="62,10 56,20 62,20 58,29 69,17 63,17" fill="#00d2ff" stroke="#00d2ff" stroke-width="1"/>
+        <path d="M 40 48 L 30 68" stroke="#fff"/>
+        <path d="M 40 48 L 50 68" stroke="#fff"/>
+      </svg>
+    </div>
+    <div class="preloader-logo-wrap">
+      <img src="./assets/logow4.png" alt="Glonetech Solutions" class="preloader-logo" onerror="this.style.display='none'">
+    </div>
+    <div class="preloader-bar-track">
+      <div class="preloader-bar-fill" id="preloaderFill"></div>
+    </div>
+    <div class="preloader-meta">
+      <span id="preloaderStatus">Preparing Visuals</span>
+      <span>•</span>
+      <span class="preloader-pct" id="preloaderPct">0%</span>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  document.body.style.overflow = 'hidden';
+  var preloader = document.getElementById('sitePreloader');
+  var fill = document.getElementById('preloaderFill');
+  var pct = document.getElementById('preloaderPct');
+  var status = document.getElementById('preloaderStatus');
+  var heroVid = document.getElementById('heroVideo');
+
+  var currentProgress = 25;
+  var isDone = false;
+
+  function setProgress(target, label) {
+    if (target > currentProgress) {
+      currentProgress = Math.min(target, 100);
+      if (fill) fill.style.width = currentProgress + '%';
+      if (pct) pct.textContent = Math.round(currentProgress) + '%';
+      if (label && status) status.textContent = label;
+    }
+  }
+
+  setProgress(35, 'Initializing Assets');
+
+  function triggerPlay() {
+    if (!heroVid) heroVid = document.getElementById('heroVideo');
+    if (!heroVid) return;
+    heroVid.muted = true;
+    var p = heroVid.play();
+    if (p !== undefined) p.catch(function() {});
+  }
+
+  function finishWhenReady() {
+    if (isDone) return;
+    isDone = true;
+    setProgress(100, 'Welcome');
+    triggerPlay();
+    setTimeout(function() {
+      if (preloader) {
+        preloader.classList.add('preloader-done');
+        document.body.style.overflow = '';
+        setTimeout(function() {
+          if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
+        }, 700);
+      }
+    }, 280);
+  }
+
+  function checkVideo() {
+    if (!heroVid) {
+      heroVid = document.getElementById('heroVideo');
+    }
+    if (heroVid) {
+      heroVid.muted = true;
+      if (heroVid.readyState >= 2) {
+        setProgress(85, 'Video Ready');
+        finishWhenReady();
+      } else {
+        heroVid.addEventListener('canplay', function() {
+          setProgress(85, 'Video Ready');
+          finishWhenReady();
+        }, { once: true });
+        heroVid.addEventListener('loadeddata', function() {
+          setProgress(75, 'Buffering');
+        }, { once: true });
+        heroVid.addEventListener('playing', function() {
+          finishWhenReady();
+        }, { once: true });
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setProgress(60, 'Loading Page');
+      checkVideo();
+    });
+  } else {
+    setProgress(60, 'Loading Page');
+    checkVideo();
+  }
+
+  window.addEventListener('load', function() {
+    setProgress(90, 'Finalizing');
+    finishWhenReady();
+  });
+
+  // Safety fallback: maximum 2.8s
+  setTimeout(function() {
+    finishWhenReady();
+  }, 2800);
+})();
+</script>
 
 <!-- ANNOUNCEMENT BAR -->
 <!--<div class="ann-bar">
